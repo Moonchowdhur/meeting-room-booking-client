@@ -79,6 +79,7 @@ const BookingProcess = () => {
         <h2 className="text-xl font-semibold mb-4">Select Booking Date</h2>
         <DatePicker
           selected={selectedDate}
+          //@ts-expect-error :'date' is possibly 'null'
           onChange={(date) => setSelectedDate(date)}
           dateFormat="yyyy/MM/dd"
           className="border p-2 rounded-lg"
@@ -94,6 +95,7 @@ const BookingProcess = () => {
                 <input
                   type="checkbox"
                   id={slot._id}
+                  //@ts-expect-error :'slot_id' is string
                   checked={selectedSlots.includes(slot._id)}
                   onChange={() => handleSlotSelection(slot._id)}
                 />

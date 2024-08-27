@@ -76,7 +76,9 @@ const AllBookingByTabular = () => {
     swal({
       title: "Are you sure to delete?",
       text: "Once deleted, you will not be able to recover this bookings!",
+
       icon: "warning",
+          //@ts-expect-error :'no error found'
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {

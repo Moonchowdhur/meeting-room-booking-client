@@ -1,4 +1,5 @@
-import { useState } from "react";
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { useGetSingleRoomQuery } from "@/redux/features/admin/roomManagementApi";
 import { useAddBookingsMutation } from "@/redux/features/booking/bookingManagementApi";
@@ -11,6 +12,12 @@ import { BsFillCalendar2DateFill } from "react-icons/bs";
 import { useGetAllSlotsAvailabilityQuery } from "@/redux/features/admin/slotManagementApi";
 
 import { clearBookingData } from "@/redux/features/booking/bookingSlice";
+import { useState } from "react";
+
+type Slot = {
+  startTime: string;
+  endTime: string;
+};
 
 const Checkout = () => {
   const bookedData = useAppSelector((state) => state.booking);
@@ -44,14 +51,16 @@ const Checkout = () => {
   }
 
   const bookedSlots = slotData?.data
-    ?.filter((slot) => bookedData?.bookingData?.slots.includes(slot._id))
-    .map((slot) => ({
+    ?.filter((slot: any) => bookedData?.bookingData?.slots.includes(slot._id))
+    .map((slot: any) => ({
       startTime: slot.startTime,
       endTime: slot.endTime,
     }));
 
   // console.log(slotData);
-  console.log(bookedData);
+  console.log(bookedData?.bookingData?.date, bookedSlots, bookedData);
+
+  const bookingDate = bookedData?.bookingData?.date || "";
 
   // {
   //   bookingData: {
@@ -73,9 +82,10 @@ const Checkout = () => {
       console.log(res);
 
       if (res?.success) {
-        dispatch(clearBookingData());
-        // swal("Booking sucessg", "", "success");
         setOpenDialog(true);
+        // if (!openDialog) {
+        //   dispatch(clearBookingData());
+        // }
       }
     } catch (error) {
       // Handle error, e.g., show an error message
@@ -83,8 +93,14 @@ const Checkout = () => {
     }
   };
 
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+    dispatch(clearBookingData());
+  };
+
   // Calculate the total cost
   const totalCost =
+    // @ts-expect-error: Unreachable code error
     bookedData?.bookingData?.slots.length *
     (singleRoom?.data.pricePerSlot || 0);
 
@@ -118,8 +134,8 @@ const Checkout = () => {
                 </p>
               </div>
               <p className="flex items-center gap-2">
-                <IoIosTime className="text-2xl text-[#455e45]" /> <h2>Time:</h2>
-                {bookedSlots?.map((slot, index) => (
+                <IoIosTime className="text-2xl text-[#455e45]" /> <h2>Time:</h2>{" "}
+                {bookedSlots?.map((slot: Slot, index: number) => (
                   <span key={index}>
                     {slot.startTime} - {slot.endTime}
                     {index < bookedSlots.length - 1 ? " & " : ""}
@@ -192,12 +208,24 @@ const Checkout = () => {
         {/* <DialogTitle>Booking Confirmation</DialogTitle> */}
         <DialogContent>
           <p>
-            "Your slot for {singleRoom?.data.name} on has been successfully
-            booked. Thank you for choosing us!"
+            "Your slot{bookedSlots.length > 1 ? "s" : ""} for
+            {singleRoom?.data.name} on {bookingDate} at
+            {bookedSlots.map((slot: Slot, index: number) => (
+              <span key={index}>
+                {slot.startTime} - {slot.endTime}
+                {index < bookedSlots.length - 1 ? ", " : ""}
+              </span>
+            ))}
+            has been successfully booked. Thank you for choosing us!"
+            <br />
+            <button
+              className="px-3 mt-1 bg-[#557856] text-white py-1 rounded-2xl "
+              onClick={handleCloseDialog}
+            >
+              Close
+            </button>
           </p>
         </DialogContent>
-
-        {/* <Button onClick={() => setOpenDialog(false)}>Close</Button> */}
       </Dialog>
     </div>
   );

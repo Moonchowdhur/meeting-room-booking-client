@@ -1,13 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetSingleRoomQuery } from "@/redux/features/admin/roomManagementApi";
 import { useParams, Link } from "react-router-dom";
 import { FaRupeeSign, FaPlus } from "react-icons/fa";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
+
 import { useState } from "react";
 
 const SingleRoom = () => {
@@ -25,7 +20,7 @@ const SingleRoom = () => {
 
   console.log(selectedImage, singleRoom?.data?.image[0]);
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image: any) => {
     setSelectedImage(image);
     console.log("object");
   };
@@ -47,7 +42,7 @@ const SingleRoom = () => {
 
   console.log(singleRoom);
 
-  const { name, roomNo, floorNo, capacity, pricePerSlot, amenities, image } =
+  const { name, roomNo, floorNo, capacity, pricePerSlot, amenities } =
     singleRoom.data;
 
   // const handlePrev = () => {
@@ -148,7 +143,7 @@ const SingleRoom = () => {
 
               {/* Thumbnail Images */}
               <div className="flex md:flex-col  gap-4 mt-4 md:mt-2 md:ml-2">
-                {singleRoom?.data?.image.map((image, index) => (
+                {singleRoom?.data?.image.map((image: string, index: number) => (
                   <button
                     key={index}
                     className="w-24 h-24 rounded-md cursor-pointer"

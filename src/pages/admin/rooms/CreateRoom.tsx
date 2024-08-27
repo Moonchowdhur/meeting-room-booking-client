@@ -1,3 +1,4 @@
+/* eslint-disable no-unsafe-optional-chaining */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -57,7 +58,7 @@ const meetingRoomValidationSchema = z.object({
     .min(1, "At least one amenity is required"),
 });
 
-const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
+const CreateRoom = ({ isDialogOpen, setIsDialogOpen }: any) => {
   const { user } = useAppSelector((state) => state.auth);
 
   const [addRoom] = roomManagementApi.useAddRoomsMutation();
@@ -76,7 +77,15 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
 
   console.log(errors);
 
-  const [roomDetails, setRoomDetails] = useState({
+  const [roomDetails, setRoomDetails] = useState<{
+    name: string;
+    roomNo: string;
+    floorNo: string;
+    capacity: string;
+    pricePerSlot: string;
+    amenities: string[];
+    image: string[];
+  }>({
     name: "",
     roomNo: "",
     floorNo: "",
@@ -126,6 +135,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
       setValue("image", [...roomDetails?.image, newImage.trim()]); // Update form state
       setRoomDetails({
         ...roomDetails,
+
         image: [...roomDetails?.image, newImage.trim()],
       });
       // setNewImage(""); // Clear the input field
@@ -144,7 +154,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
       setValue("amenities", [...roomDetails.amenities, newAmenity.trim()]);
       setRoomDetails({
         ...roomDetails,
-        // @ts-expect-error: Unreachable code error
+
         amenities: [...roomDetails.amenities, newAmenity.trim()],
       });
       setNewAmenity("");
@@ -197,6 +207,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
                   </Button>
                 </div>
                 {errors.image && (
+                  // @ts-expect-error: Unreachable code error
                   <p className="text-red-500">{errors?.image?.message}</p>
                 )}
                 <ul className="">
@@ -275,12 +286,12 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }) => {
                     {...register("pricePerSlot")}
                     className="w-full"
                   />
-                  {errors.pricePerSlot && (
-                    // @ts-expect-error: Unreachable code error
-                    <p className="text-red-500">
-                      {errors?.pricePerSlot?.message}
-                    </p>
-                  )}
+                  {errors.pricePerSlot &&
+                    typeof errors.pricePerSlot.message === "string" && (
+                      <p className="text-red-500">
+                        {errors.pricePerSlot.message}
+                      </p>
+                    )}
                 </div>
               </div>
 
