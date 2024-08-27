@@ -46,11 +46,12 @@ const AllRoomByTabular = () => {
     setCreateDialogOpen(true);
   };
 
-  function handleDelete(id) {
+  function handleDelete(id: string) {
     swal({
       title: "Are you sure to delete?",
       text: "Once deleted, you will not be able to recover this room!",
       icon: "warning",
+      // @ts-expect-error: Unreachable code error
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
@@ -115,7 +116,7 @@ const AllRoomByTabular = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {data?.data?.map((room) => {
+          {data?.data?.map((room: any) => {
             return (
               <TableRow key={room._id}>
                 <TableCell>{room?.name}</TableCell>

@@ -27,6 +27,17 @@ export const slotManagementApi = baseApi.injectEndpoints({
 
       providesTags: ["slots"],
     }),
+
+    getAllSlotFromDb: builder.query({
+      query: () => {
+        return {
+          url: "slots",
+          method: "GET",
+        };
+      },
+      providesTags: ["slots"],
+    }),
+
     updateSlot: builder.mutation({
       query: (data) => {
         console.log("sending rooms==>", data);
@@ -65,4 +76,5 @@ export const {
   useDeleteSlotMutation,
   useUpdateSlotMutation,
   useGetSingleSlotQuery,
+  useGetAllSlotFromDbQuery
 } = slotManagementApi;

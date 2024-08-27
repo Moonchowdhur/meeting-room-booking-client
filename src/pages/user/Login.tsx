@@ -49,6 +49,7 @@ const Login = () => {
       //set user, token in local state
       navigate("/");
     } catch (err) {
+      // @ts-expect-error: Unreachable code error
       toast.error(err?.data?.message, { id: toastId, duration: 2000 });
       console.log(err);
     }

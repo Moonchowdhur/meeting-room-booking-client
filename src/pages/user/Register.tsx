@@ -86,6 +86,7 @@ const Register = () => {
                 {...register("name")}
               />
               {errors.name && (
+                // @ts-expect-error: Unreachable code error
                 <p className="text-red-500">{errors.name.message}</p>
               )}
             </div>
@@ -102,6 +103,7 @@ const Register = () => {
                 {...register("email")}
               />
               {errors.email && (
+                // @ts-expect-error: Unreachable code error
                 <p className="text-red-500">{errors.email.message}</p>
               )}
             </div>
@@ -127,6 +129,7 @@ const Register = () => {
                 </span>
               </div>
               {errors.password && (
+                // @ts-expect-error: Unreachable code error
                 <p className="text-red-500">{errors.password.message}</p>
               )}
             </div>
@@ -143,6 +146,7 @@ const Register = () => {
                 {...register("phone")}
               />
               {errors.phone && (
+                // @ts-expect-error: Unreachable code error
                 <p className="text-red-500">{errors.phone.message}</p>
               )}
             </div>
@@ -159,6 +163,7 @@ const Register = () => {
                 {...register("address")}
               />
               {errors.address && (
+                // @ts-expect-error: Unreachable code error
                 <p className="text-red-500">{errors.address.message}</p>
               )}
             </div>

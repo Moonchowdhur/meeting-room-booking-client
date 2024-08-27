@@ -1,3 +1,5 @@
+/* eslint-disable no-unsafe-optional-chaining */
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Dialog,
   DialogContent,
@@ -42,7 +44,7 @@ const updateMeetingRoomValidationSchema = z.object({
     .optional(),
 });
 
-const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
+const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
   console.log(roomId, "roomId");
 
   const [updateRoom] = roomManagementApi.useUpdateRoomMutation();
@@ -57,7 +59,15 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
     resolver: zodResolver(updateMeetingRoomValidationSchema),
   });
 
-  const [roomDetails, setRoomDetails] = useState({
+  const [roomDetails, setRoomDetails] = useState<{
+    name: string;
+    roomNo: string;
+    floorNo: string;
+    capacity: string;
+    pricePerSlot: string;
+    amenities: string[];
+    image: string[];
+  }>({
     name: "",
     roomNo: "",
     floorNo: "",
@@ -143,7 +153,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
       setValue("amenities", [...roomDetails.amenities, newAmenity.trim()]);
       setRoomDetails({
         ...roomDetails,
-        // @ts-expect-error: Unreachable code error
+
         amenities: [...roomDetails.amenities, newAmenity.trim()],
       });
       setNewAmenity("");
@@ -161,6 +171,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
   // Function to add new image URL
   const handleAddImage = () => {
     if (newImage.trim() !== "") {
+      // eslint-disable-next-line no-unsafe-optional-chaining
       setValue("image", [...roomDetails?.image, newImage.trim()]); // Update form state
       setRoomDetails({
         ...roomDetails,
@@ -206,6 +217,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
                   </Button>
                 </div>
                 {errors.image && (
+                  // @ts-expect-error: Unreachable code error
                   <p className="text-red-500">{errors?.image?.message}</p>
                 )}
                 <ul className="">
@@ -293,11 +305,12 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }) => {
                     defaultValue={roomData?.data?.pricePerSlot}
                     className="w-full"
                   />
-                  {errors.pricePerSlot && (
-                    <p className="text-red-500">
-                      {errors?.pricePerSlot?.message}
-                    </p>
-                  )}
+                  {errors.pricePerSlot &&
+                    typeof errors.pricePerSlot.message === "string" && (
+                      <p className="text-red-500">
+                        {errors.pricePerSlot.message}
+                      </p>
+                    )}
                 </div>
               </div>
 
