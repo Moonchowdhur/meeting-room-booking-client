@@ -50,7 +50,22 @@ const AllSlotByTabular = () => {
   function handleDelete(id: string, booked) {
     console.log(booked);
 
-    //once
+    //deleted slot will not be delete twice
+    if (booked && !alertShown) {
+      swal({
+        title: "Delete Failed",
+        text: "You can't delete this slot as it has already been deleted.",
+        icon: "error",
+        //@ts-expect-error :'buttons' is generated error
+        buttons: "Okay",
+      }).then(() => {
+        setAlertShown(false);
+      });
+
+      setAlertShown(true);
+
+      return;
+    }
 
     swal({
       title: "Are you sure to delete?",
@@ -108,8 +123,8 @@ const AllSlotByTabular = () => {
               Date
             </TableHead>
 
-            <TableHead className="text-[#557856] font-medium text-base">
-              Is Booked
+            <TableHead className="text-[#557856] font-medium text-left text-base">
+            Booked
             </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
               Actions

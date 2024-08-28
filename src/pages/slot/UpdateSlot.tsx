@@ -86,7 +86,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
   // Filter and map the data
   const availableRooms = RoomData?.data.filter((room: any) => !room.isDeleted);
 
-  console.log(availableRooms);
+  // console.log(availableRooms);
 
   if (slotData?.data?.isBooked && !alertShown) {
     // Show the alert only if it hasn't been shown before
@@ -114,9 +114,11 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
     reset();
     const toastId = toast.loading("updating slot...");
 
+    // Safely create the updatedData object
     const updatedData = {
-      sId: slotId,
       data,
+      // room: data?.room || slotData?.data?.room,
+      sId: slotId,
     };
     console.log(updatedData);
     try {
@@ -148,7 +150,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
                 <label className="block text-gray-700 mb-2">Room</label>
                 <select
                   {...register("room")}
-                  defaultValue={singleRoom?.data?.name}
+                  defaultValue={singleRoom?.data?._id}
                   className="border input p-1 rounded-md w-full"
                 >
                   <option value="" disabled selected>
