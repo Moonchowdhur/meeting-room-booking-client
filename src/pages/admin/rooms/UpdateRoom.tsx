@@ -142,12 +142,12 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
       data: {
         ...data,
         amenities:
-          newAmenity.length > 0 && roomData?.data?.amenities?.length > 0
+          newAmenity?.length > 0 && roomData?.data?.amenities?.length > 0
             ? [...roomData.data.amenities, newAmenity]
             : [...(roomData?.data?.amenities || [])],
         // Handle images
         image:
-          newImage.length > 0 && roomData?.data?.image?.length > 0
+          newImage?.length > 0 && roomData?.data?.image?.length > 0
             ? [...roomData.data.image, newImage]
             : [...(roomData?.data?.image || [])],
       },

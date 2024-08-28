@@ -81,7 +81,7 @@ const MeetingRooms = () => {
   const indexOfLastRoom = currentPage * roomsPerPage;
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
   const currentRooms = filteredRooms.slice(indexOfFirstRoom, indexOfLastRoom);
-  const totalPages = Math.ceil(filteredRooms.length / roomsPerPage);
+  const totalPages = Math.ceil(filteredRooms?.length / roomsPerPage);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -153,7 +153,7 @@ const MeetingRooms = () => {
       </div>
 
       {/* Meeting Room Cards */}
-      {currentRooms.length > 0 ? ( // updated for pagination
+      {currentRooms?.length > 0 ? ( // updated for pagination
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-between items-center mt-16 rounded-lg">
           {currentRooms.map(
             (

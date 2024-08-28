@@ -64,12 +64,12 @@ const Testimonials = () => {
 
   const handlePrev = () => {
     const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? testimonials.length - 1 : currentIndex - 1;
+    const newIndex = isFirstSlide ? testimonials?.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
   };
 
   const handleNext = () => {
-    const isLastSlide = currentIndex === testimonials.length - 1;
+    const isLastSlide = currentIndex === testimonials?.length - 1;
     const newIndex = isLastSlide ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   };

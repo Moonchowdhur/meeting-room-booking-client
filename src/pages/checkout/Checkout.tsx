@@ -107,7 +107,7 @@ const Checkout = () => {
   // Calculate the total cost
   const totalCost =
     // @ts-expect-error: Unreachable code error
-    bookedData?.bookingData?.slots.length *
+    bookedData?.bookingData?.slots?.length *
     (singleRoom?.data.pricePerSlot || 0);
 
   return (
@@ -144,7 +144,7 @@ const Checkout = () => {
                 {bookedSlots?.map((slot: Slot, index: number) => (
                   <span key={index}>
                     {slot.startTime} - {slot.endTime}
-                    {index < bookedSlots.length - 1 ? " & " : ""}
+                    {index < bookedSlots?.length - 1 ? " & " : ""}
                   </span>
                 ))}
               </p>
@@ -214,12 +214,12 @@ const Checkout = () => {
         {/* <DialogTitle>Booking Confirmation</DialogTitle> */}
         <DialogContent>
           <p>
-            "Your slot{bookedSlots.length > 1 ? "s" : ""} for
+            "Your slot{bookedSlots?.length > 1 ? "s" : ""} for
             {singleRoom?.data.name} on {bookingDate} at
             {bookedSlots.map((slot: Slot, index: number) => (
               <span key={index}>
                 {slot.startTime} - {slot.endTime}
-                {index < bookedSlots.length - 1 ? ", " : ""}
+                {index < bookedSlots?.length - 1 ? ", " : ""}
               </span>
             ))}
             has been successfully booked. Thank you for choosing us!"

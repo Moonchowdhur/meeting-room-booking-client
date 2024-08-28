@@ -135,9 +135,9 @@ const BookingProcess = () => {
         <div className="mt-6 gap-2 flex justify-between">
           <button
             onClick={handleBookingConfirmation}
-            disabled={selectedSlots.length === 0}
+            disabled={selectedSlots?.length === 0}
             className={`bg-[#557856] text-white px-6 py-3 rounded-lg text-base md:text-lg font-semibold hover:bg-[#455e45] transition ${
-              selectedSlots.length === 0
+              selectedSlots?.length === 0
                 ? "opacity-50 text-gray-500 cursor-not-allowed"
                 : ""
             }`}
