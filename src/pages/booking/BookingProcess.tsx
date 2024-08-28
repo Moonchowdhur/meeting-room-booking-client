@@ -19,19 +19,15 @@ const BookingProcess = () => {
   const user = useAppSelector((state) => state.auth.user);
   const { data: userData } = authApi.useGetUserByEmailQuery(user?.email);
   const { data: slotData, isLoading } = useGetAllSlotsAvailabilityQuery({
-    date: selectedDate.toISOString().split("T")[0], // Format date as YYYY-MM-DD
+    date: selectedDate.toISOString().split("T")[0], 
     roomId,
   });
 
   const dispatch = useAppDispatch();
 
-  //   const bookedData = useAppSelector((state) => state.booking);
-
   const navigate = useNavigate();
 
-  console.log(userData);
-
-  //   const [addBooking] = useAddBookingsMutation();
+  console.log(slotData);
 
   if (isLoading) {
     return (
@@ -41,7 +37,9 @@ const BookingProcess = () => {
     );
   }
 
-  // console.log(slotData);
+  // Filter and map the data
+  const availableSlots = slotData?.data.filter((room: any) => !room.isBooked);
+  console.log(availableSlots);
 
   const handleSlotSelection = (slotId: any) => {
     setSelectedSlots((prevSlots: any) =>
@@ -88,9 +86,9 @@ const BookingProcess = () => {
         <h2 className="text-xl font-semibold mt-6 mb-4">
           Available Time Slots
         </h2>
-        {slotData && slotData.data.length > 0 ? (
+        {availableSlots && availableSlots?.length > 0 ? (
           <ul className="list-disc pl-5">
-            {slotData.data.map((slot: any) => (
+            {availableSlots?.map((slot: any) => (
               <li key={slot._id} className="mb-2">
                 <input
                   type="checkbox"

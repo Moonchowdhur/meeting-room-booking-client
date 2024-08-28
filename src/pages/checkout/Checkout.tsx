@@ -42,6 +42,8 @@ const Checkout = () => {
       roomId,
     });
 
+  console.log(slotData);
+
   if (isSlotLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -50,7 +52,11 @@ const Checkout = () => {
     );
   }
 
-  const bookedSlots = slotData?.data
+  // Filter and map the data
+  const availableSlots = slotData?.data.filter((room: any) => !room.isBooked);
+  console.log(availableSlots);
+
+  const bookedSlots = availableSlots
     ?.filter((slot: any) => bookedData?.bookingData?.slots.includes(slot._id))
     .map((slot: any) => ({
       startTime: slot.startTime,
@@ -122,7 +128,7 @@ const Checkout = () => {
               <img
                 src={singleRoom?.data.image}
                 alt={singleRoom?.data.name}
-                className="w-full h-[400px] rounded-lg mb-4"
+                className="w-10/12 h-[500px] rounded-lg mb-4"
               />
               <div className="flex items-center gap-4">
                 <p className="font-medium text-[#455e45]">

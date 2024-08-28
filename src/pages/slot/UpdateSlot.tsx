@@ -20,6 +20,7 @@ import {
   useGetAllRoomsQuery,
   useGetSingleRoomQuery,
 } from "@/redux/features/admin/roomManagementApi";
+import { useState } from "react";
 
 const slotValidationSchema = z.object({
   room: z.string().optional(),
@@ -48,6 +49,8 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
   console.log(slotId, "roomId");
 
   const [updateSlot] = useUpdateSlotMutation();
+
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
 
   const { data: RoomData, isLoading } = useGetAllRoomsQuery(undefined, {
     pollingInterval: 1000,
@@ -84,6 +87,25 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
   const availableRooms = RoomData?.data.filter((room: any) => !room.isDeleted);
 
   console.log(availableRooms);
+
+  if (slotData?.data?.isBooked && !alertShown) {
+    // Show the alert only if it hasn't been shown before
+    swal({
+      title: "Update Failed",
+      text: "You can't update this slot as it has already been booked.",
+      icon: "error",
+      //@ts-expect-error :'buttons' is generated error
+      buttons: "Okay",
+    }).then(() => {
+      setAlertShown(false); // Reset the alert state after user acknowledges
+    });
+
+    // Set the alert as shown
+    setAlertShown(true);
+
+    // Exit the function to prevent further actions
+    return;
+  }
 
   // Function to handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {

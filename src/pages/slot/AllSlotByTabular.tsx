@@ -26,6 +26,8 @@ const AllSlotByTabular = () => {
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const [deleteSlot] = useDeleteSlotMutation();
 
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -45,7 +47,11 @@ const AllSlotByTabular = () => {
     setCreateDialogOpen(true);
   };
 
-  function handleDelete(id: string) {
+  function handleDelete(id: string, booked) {
+    console.log(booked);
+
+    //once
+
     swal({
       title: "Are you sure to delete?",
       text: "Once deleted, you will not be able to recover this slot!",
@@ -125,7 +131,7 @@ const AllSlotByTabular = () => {
                 >
                   <FaPenToSquare className="text-[#557856] text-xl" />
                 </button>
-                <button onClick={() => handleDelete(slot?._id)}>
+                <button onClick={() => handleDelete(slot?._id, slot.isBooked)}>
                   <RiDeleteBack2Fill className="text-red-600 text-xl" />
                 </button>
               </TableCell>
