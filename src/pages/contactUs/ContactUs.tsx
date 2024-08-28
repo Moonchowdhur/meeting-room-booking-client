@@ -53,38 +53,38 @@ const ContactUs = () => {
             <form>
               <div className="mt-5">
                 <h2>Name*</h2>
-                <div className="flex  justify-center">
+                <div className="flex justify-center">
                   <input
                     name="name"
-                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 "
+                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 transition-transform duration-300 ease-in-out focus:scale-105 focus:shadow-lg"
                   />
                 </div>
               </div>
               <div className="mt-2">
                 <h2>Email*</h2>
-                <div className="flex  justify-center">
+                <div className="flex justify-center">
                   <input
                     name="email"
                     type="email"
-                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 "
+                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 transition-transform duration-300 ease-in-out focus:scale-105 focus:shadow-lg"
                   />
                 </div>
               </div>
               <div className="mt-2">
                 <h2>Phone Number*</h2>
-                <div className="flex  justify-center">
+                <div className="flex justify-center">
                   <input
                     name="number"
-                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 "
+                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 transition-transform duration-300 ease-in-out focus:scale-105 focus:shadow-lg"
                   />
                 </div>
               </div>
               <div className="mt-5">
                 <h2>Subject*</h2>
-                <div className="flex  justify-center">
+                <div className="flex justify-center">
                   <input
                     name="subject"
-                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 "
+                    className="w-full rounded-lg border border-slate-300 mt-2 p-2 transition-transform duration-300 ease-in-out focus:scale-105 focus:shadow-lg"
                   />
                 </div>
               </div>
@@ -92,16 +92,16 @@ const ContactUs = () => {
                 <textarea
                   id="message"
                   name="message"
-                  rows={4} // Adjust the number of rows as needed
-                  className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none sm:text-lg"
+                  rows={4}
+                  className="mt-2 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm transition-transform duration-300 ease-in-out focus:scale-105 focus:shadow-lg"
                   placeholder="Write your message here..."
                 ></textarea>
               </div>
               <button
                 onClick={handleMessage}
-                className="text-white text-lg mt-6 mx-auto  px-5 py-2 rounded-lg  hover:bg-[#5a685a]  hover:animate-pulse bg-[#809580]"
+                className="text-white text-lg mt-6 mx-auto px-5 py-2 rounded-lg bg-[#809580] hover:bg-[#5a685a] transition duration-300 ease-in-out hover:animate-pulse"
               >
-                Send{" "}
+                Send
               </button>
             </form>
           </div>
