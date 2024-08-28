@@ -67,7 +67,7 @@ const SingleRoom = () => {
                 {singleRoom.data.image.map((image: any, index: number) => (
                   <button
                     key={index}
-                    className="w-24 h-24 rounded-md cursor-pointer"
+                    className="w-24 z-50 border-2 p-1 hover:border-white  border-[#557856] h-24 rounded-md cursor-pointer"
                     onClick={() => handleImageClick(image)}
                   >
                     <div
@@ -86,7 +86,7 @@ const SingleRoom = () => {
             <div className="absolute inset-0 bg-black opacity-25"></div>
             <div className="absolute bottom-32 md:bottom-0  left-0 right-0 px-6 py-4 bg-gradient-to-t from-black to-transparent text-white">
               <h1 className="text-xl   md:text-3xl font-bold">{name}</h1>
-              <div className="flex justify-between md:mt-2">
+              <div className="flex justify-start gap-5 md:mt-2">
                 <div className="flex items-center text-white">
                   <FaRupeeSign className="text-white text-base" />
                   <h2 className="text-base font-normal">{pricePerSlot}</h2>

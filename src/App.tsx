@@ -10,14 +10,14 @@ import Footer from "./pages/footer/Footer";
 function App() {
   const bookedData = useAppSelector((state) => state.booking);
 
-  console.log(bookedData);
+  // console.log(bookedData);
 
   useEffect(() => {
     const handleBeforeUnload = (event: any) => {
-      if (bookedData?.bookingData) {
+      if (bookedData) {
         console.log(bookedData);
         event.preventDefault();
-        event.returnValue = ""; // Chrome requires returnValue to be set
+        event.returnValue = "";
         swal({
           title: "Are you sure?",
           text: "You booked your slot. Are you sure you want to leave?",

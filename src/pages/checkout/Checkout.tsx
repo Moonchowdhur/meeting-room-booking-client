@@ -57,7 +57,7 @@ const Checkout = () => {
   console.log(availableSlots);
 
   const bookedSlots = availableSlots
-    ?.filter((slot: any) => bookedData?.bookingData?.slots.includes(slot._id))
+    ?.filter((slot: any) => bookedData?.bookingData?.slots?.includes(slot._id))
     .map((slot: any) => ({
       startTime: slot.startTime,
       endTime: slot.endTime,
