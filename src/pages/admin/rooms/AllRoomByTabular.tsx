@@ -133,7 +133,9 @@ const AllRoomByTabular = () => {
             <TableHead className="text-[#557856] font-medium text-base">
               Price
             </TableHead>
-
+            <TableHead className="text-[#557856] font-medium text-base">
+              Delete
+            </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
               Action
             </TableHead>
@@ -156,7 +158,7 @@ const AllRoomByTabular = () => {
                 <TableCell> {room?.floorNo}</TableCell>
                 <TableCell>{room?.capacity}</TableCell>
                 <TableCell>{room?.pricePerSlot}</TableCell>
-
+                <TableCell>{room?.isDeleted ? "Yes" : "No"}</TableCell>
                 <TableCell className="flex gap-3 mt-3 items-center">
                   <button onClick={() => handleUpdate(room?._id)}>
                     <FaPenToSquare className="text-[#557856] text-xl" />

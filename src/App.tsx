@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     const handleBeforeUnload = (event: any) => {
-      if (bookedData) {
+      if (bookedData?.bookingData) {
         console.log(bookedData);
         event.preventDefault();
         event.returnValue = "";

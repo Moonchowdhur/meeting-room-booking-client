@@ -5,7 +5,7 @@ import {
   AiFillHome,
   AiFillGithub,
 } from "react-icons/ai";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -61,12 +61,12 @@ const Footer = () => {
             <span className="footer-title text-xl">Helpful Links</span>
             <ul className="mt-2">
               <li>
-                <Link
+                <NavLink
                   className="link link-hover hover:text-green-800 hover:font-medium"
                   to="/about"
                 >
                   Join Our Team
-                </Link>
+                </NavLink>
               </li>
 
               <li>

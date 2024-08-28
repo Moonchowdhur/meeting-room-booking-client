@@ -84,11 +84,11 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
 
   const {
     data: roomData,
-    error,
+
     isLoading,
   } = roomManagementApi.useGetSingleRoomQuery(roomId);
 
-  console.log(roomData?.data?.isDeleted, error);
+  console.log(roomData);
 
   if (isLoading) {
     return (
@@ -209,6 +209,8 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
     setValue("image", updatedImages); // Update form state
     setRoomDetails({ ...roomDetails, image: updatedImages });
   };
+
+
 
   console.log(roomDetails);
   return (

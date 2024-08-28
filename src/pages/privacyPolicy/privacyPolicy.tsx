@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -9,7 +9,7 @@ const PrivacyPolicy = () => {
   }, []);
 
   return (
-    <div className="bg-[#49674a] text-white py-16">
+    <div className="bg-[#49674a]  mt-40 md:mt-0  text-white py-16">
       <div className="container mx-auto px-6 mb-16">
         <h2 className="text-4xl font-bold mb-4 text-center">Privacy Policy</h2>
         <div className="flex justify-center">

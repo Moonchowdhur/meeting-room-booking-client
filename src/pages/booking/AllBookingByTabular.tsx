@@ -16,6 +16,11 @@ import {
 import swal from "sweetalert";
 import { toast } from "sonner";
 
+import { ImCheckboxChecked } from "react-icons/im";
+
+import { TiDelete } from "react-icons/ti";
+import { MdAutoDelete } from "react-icons/md";
+
 // import { toast } from "sonner";
 
 const AllBookingByTabular = () => {
@@ -78,7 +83,7 @@ const AllBookingByTabular = () => {
       text: "Once deleted, you will not be able to recover this bookings!",
 
       icon: "warning",
-          //@ts-expect-error :'no error found'
+      //@ts-expect-error :'no error found'
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
@@ -162,11 +167,12 @@ const AllBookingByTabular = () => {
                   variant="danger"
                   onClick={() => handleReject(booking._id)}
                 >
-                  <img
+                  {/* <img
                     src="https://i.ibb.co/GWYWfMr/Antu-task-reject-svg.png"
                     className="w-7  h-7 rounded-full"
                     alt=""
-                  />
+                  /> */}
+                  <TiDelete className="text-red-600 text-3xl" />
                 </Button>
               ) : (
                 <Button
@@ -175,20 +181,22 @@ const AllBookingByTabular = () => {
                   variant="success"
                   onClick={() => handleApprove(booking._id)}
                 >
-                  <img
+                  {/* <img
                     src="https://i.ibb.co/54Fwtvn/tick-icon-accept-approve-sign-design-free-png.webp"
                     className="w-5  h-5 rounded-full"
                     alt=""
-                  />
+                  /> */}
+                  <ImCheckboxChecked className="text-green-600 text-lg" />
                 </Button>
               )}
 
               <button onClick={() => handleDelete(booking._id)}>
-                <img
+                {/* <img
                   src="https://i.ibb.co/DD89FWP/images-3.jpg"
                   className="w-6 h-6 rounded-full"
                   alt=""
-                />
+                /> */}
+                <MdAutoDelete className="text-orange-600 text-2xl" />
               </button>
             </TableCell>
           </TableRow>
