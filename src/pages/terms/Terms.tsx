@@ -1,62 +1,74 @@
+import React, { useEffect } from "react";
+import { Card, CardContent } from "@/components/ui/card";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
+const TermsOfService = () => {
+  useEffect(() => {
+    AOS.init({ duration: 1000 });
+  }, []);
 
-const Terms = () => {
   return (
-    <div className="bg-gray-100 min-h-screen py-10 px-5 md:px-20 lg:px-40">
-      <div className="bg-white p-8 rounded-lg shadow-md">
-        <h1 className="text-3xl font-bold mb-6 text-center text-blue-600">
+    <div className="bg-[#49674a] text-white py-16">
+      <div className="container mx-auto px-6 mb-16">
+        <h2 className="text-4xl font-bold mb-4 text-center">
           Terms of Service
-        </h1>
-        <p className="text-gray-700 mb-4">
-          These Terms of Service ("Terms") govern your use of the Meeting Room
-          Booking website and services provided therein. By accessing or using
-          our website, you agree to comply with these Terms.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-6 text-blue-500">
-          Use of Service
         </h2>
-        <p className="text-gray-700 mb-4">
-          You may use our services only in compliance with these Terms. You must
-          provide accurate information and maintain the confidentiality of your
-          account details.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-6 text-blue-500">
-          Booking and Payment
-        </h2>
-        <p className="text-gray-700 mb-4">
-          When you book a meeting room, you agree to pay the applicable fees as
-          displayed on the website. All payments are processed securely, and you
-          are responsible for providing valid payment information.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-6 text-blue-500">
-          Cancellation and Refund Policy
-        </h2>
-        <p className="text-gray-700 mb-4">
-          Cancellations must be made at least 24 hours in advance to receive a
-          full refund. Cancellations made within 24 hours of the booking will
-          incur a cancellation fee.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-6 text-blue-500">
-          Limitation of Liability
-        </h2>
-        <p className="text-gray-700 mb-4">
-          We are not liable for any indirect, incidental, or consequential
-          damages arising out of your use of the website or services.
-        </p>
-        <h2 className="text-2xl font-semibold mb-4 mt-6 text-blue-500">
-          Governing Law
-        </h2>
-        <p className="text-gray-700 mb-4">
-          These Terms are governed by the laws of [Your Jurisdiction], and any
-          disputes will be resolved in the courts of [Your Jurisdiction].
-        </p>
-        <p className="text-gray-700 mb-4">
-          If you have any questions about these Terms, please contact us at
-          support@meetingroomlife.com.
-        </p>
+        <div className="flex justify-center">
+          <div className="w-20 text-center rounded-md mb-4 h-[5px] bg-[#809580]"></div>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 gap-8">
+          <Card
+            data-aos="fade-up"
+            className="bg-[#c8d1c9] text-gray-900 shadow-lg"
+          >
+            <CardContent>
+              <h3 className="text-xl font-semibold mt-2 mb-3">
+                Use of Service
+              </h3>
+              <p className="text-base leading-relaxed text-justify">
+                By accessing our services, you agree to comply with these Terms
+                of Service. You must provide accurate information and maintain
+                the confidentiality of your account details.
+              </p>
+            </CardContent>
+          </Card>
+          <Card
+            data-aos="fade-up"
+            data-aos-delay="100"
+            className="bg-[#c8d1c9] text-gray-900 shadow-lg"
+          >
+            <CardContent>
+              <h3 className="text-xl font-semibold mt-2 mb-3">
+                Booking and Payment
+              </h3>
+              <p className="text-base leading-relaxed text-justify">
+                When you book a meeting room, you agree to pay the applicable
+                fees as displayed on the website. All payments are processed
+                securely, and you are responsible for providing valid payment
+                information.
+              </p>
+            </CardContent>
+          </Card>
+          <Card
+            data-aos="fade-up"
+            data-aos-delay="200"
+            className="bg-[#c8d1c9] text-gray-900 shadow-lg"
+          >
+            <CardContent>
+              <h3 className="text-xl font-semibold mt-2 mb-3">
+                Limitation of Liability
+              </h3>
+              <p className="text-base leading-relaxed text-justify">
+                We are not liable for any indirect, incidental, or consequential
+                damages arising out of your use of the website or services.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
 };
 
-export default Terms;
+export default TermsOfService;

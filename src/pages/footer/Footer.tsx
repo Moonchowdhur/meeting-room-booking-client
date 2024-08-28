@@ -61,18 +61,27 @@ const Footer = () => {
             <span className="footer-title text-xl">Helpful Links</span>
             <ul className="mt-2">
               <li>
-                <Link className="link link-hover hover:text-green-800 hover:font-medium" to="/about">
+                <Link
+                  className="link link-hover hover:text-green-800 hover:font-medium"
+                  to="/about"
+                >
                   Join Our Team
                 </Link>
               </li>
 
               <li>
-                <NavLink className="link link-hover" to="/terms-of-service">
+                <NavLink
+                  className="link link-hover hover:text-green-800 hover:font-medium"
+                  to="/terms-of-service"
+                >
                   Terms of Service
                 </NavLink>
               </li>
               <li>
-                <NavLink className="link link-hover" to="/privacy-policy">
+                <NavLink
+                  className="link link-hover hover:text-green-800 hover:font-medium"
+                  to="/privacy-policy"
+                >
                   Privacy Policy
                 </NavLink>
               </li>

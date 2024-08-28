@@ -14,7 +14,9 @@ import ContactUs from "@/pages/contactUs/ContactUs";
 import ErrorPage from "@/pages/errorPage/ErrorPage";
 import Home from "@/pages/home/Home";
 import MeetingRooms from "@/pages/MeetingRooms/MeetingRooms";
+import PrivacyPolicy from "@/pages/privacyPolicy/privacyPolicy";
 import AllSlotByTabular from "@/pages/slot/AllSlotByTabular";
+import Terms from "@/pages/terms/Terms";
 
 import Login from "@/pages/user/Login";
 import Register from "@/pages/user/Register";
@@ -59,6 +61,17 @@ const router = createBrowserRouter([
         path: "/about",
         element: <AboutUs />,
       },
+
+      {
+        path: "/terms-of-service",
+        element: <Terms />,
+      },
+
+      {
+        path: "/privacy-policy",
+        element: <PrivacyPolicy />,
+      },
+
       {
         path: "/contact",
         element: <ContactUs />,
