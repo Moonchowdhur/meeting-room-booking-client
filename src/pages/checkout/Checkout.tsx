@@ -205,7 +205,7 @@ const Checkout = () => {
         </div>
       ) : (
         <h2 className="text-3xl mt-5 mb-2 font-medium tracking-wider text-center">
-          There is no booking history
+          There is no booking
         </h2>
       )}
 
