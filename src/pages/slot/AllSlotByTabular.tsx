@@ -34,6 +34,8 @@ const AllSlotByTabular = () => {
     );
   }
 
+  console.log(data);
+
   const handleUpdate = (slotId: any) => {
     setSelectedSlotId(slotId);
     setIsDialogOpen(true);
@@ -99,9 +101,10 @@ const AllSlotByTabular = () => {
             <TableHead className="text-[#557856] font-medium text-base">
               Date
             </TableHead>
-            {/* <TableHead className="text-[#557856] font-medium text-base">
+
+            <TableHead className="text-[#557856] font-medium text-base">
               Is Booked
-            </TableHead> */}
+            </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
               Actions
             </TableHead>
@@ -110,16 +113,19 @@ const AllSlotByTabular = () => {
         <TableBody>
           {data?.data?.map((slot: any) => (
             <TableRow key={slot._id}>
-              <TableCell>{slot.room.name}</TableCell>
-              <TableCell>{slot.startTime}</TableCell>
-              <TableCell>{slot.endTime}</TableCell>
-              <TableCell>{new Date(slot.date).toLocaleDateString()}</TableCell>
-              {/* <TableCell>{slot.isBooked ? "Yes" : "No"}</TableCell> */}
+              <TableCell>{slot?.room?.name}</TableCell>
+              <TableCell>{slot?.startTime}</TableCell>
+              <TableCell>{slot?.endTime}</TableCell>
+              <TableCell>{new Date(slot?.date).toLocaleDateString()}</TableCell>
+              <TableCell>{slot.isBooked ? "Yes" : "No"}</TableCell>
               <TableCell>
-                <button onClick={() => handleUpdate(slot._id)} className="mr-2">
+                <button
+                  onClick={() => handleUpdate(slot?._id)}
+                  className="mr-2"
+                >
                   <FaPenToSquare className="text-[#557856] text-xl" />
                 </button>
-                <button onClick={() => handleDelete(slot._id)}>
+                <button onClick={() => handleDelete(slot?._id)}>
                   <RiDeleteBack2Fill className="text-red-600 text-xl" />
                 </button>
               </TableCell>

@@ -18,6 +18,7 @@ import { toast } from "sonner";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import swal from "sweetalert";
 
 const updateMeetingRoomValidationSchema = z.object({
   image: z
@@ -46,6 +47,7 @@ const updateMeetingRoomValidationSchema = z.object({
 
 const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
   console.log(roomId, "roomId");
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
 
   const [updateRoom] = roomManagementApi.useUpdateRoomMutation();
 
@@ -86,7 +88,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
     isLoading,
   } = roomManagementApi.useGetSingleRoomQuery(roomId);
 
-  console.log(roomData, error);
+  console.log(roomData?.data?.isDeleted, error);
 
   if (isLoading) {
     return (
@@ -94,6 +96,25 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
         <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#557856]"></div>
       </div>
     );
+  }
+
+  if (roomData?.data?.isDeleted && !alertShown) {
+    // Show the alert only if it hasn't been shown before
+    swal({
+      title: "Update Failed",
+      text: "You can't update this room as it has already been deleted.",
+      icon: "error",
+      //@ts-expect-error :'buttons' is generated error
+      buttons: "Okay",
+    }).then(() => {
+      setAlertShown(false); // Reset the alert state after user acknowledges
+    });
+
+    // Set the alert as shown
+    setAlertShown(true);
+
+    // Exit the function to prevent further actions
+    return;
   }
 
   console.log(errors?.amenities);
@@ -144,6 +165,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
         toast.error(res?.message, { id: toastId });
       }
     } catch (err) {
+      console.error(err);
       toast.error("something went wrong.", { id: toastId });
     }
   };

@@ -55,7 +55,10 @@ const CreateSlot = ({ isDialogOpen, setIsDialogOpen }: any) => {
     );
   }
 
-  console.log(allRoom);
+  // Filter and map the data
+  const availableRooms = allRoom?.data.filter((room:any) => !room.isDeleted);
+
+  console.log(availableRooms);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log("Form data:", data);
@@ -96,7 +99,7 @@ const CreateSlot = ({ isDialogOpen, setIsDialogOpen }: any) => {
                   <option value="" disabled selected>
                     Select a Room
                   </option>
-                  {allRoom?.data?.map((room: any) => (
+                  {availableRooms?.map((room: any) => (
                     <option key={room._id} value={room._id}>
                       {`${room.name} - $${room.pricePerSlot}`}
                     </option>

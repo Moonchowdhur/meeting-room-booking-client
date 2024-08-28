@@ -30,6 +30,8 @@ const AllRoomByTabular = () => {
 
   const [deleteRoom] = useDeleteRoomMutation();
 
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
+
   if (isLoading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -37,6 +39,8 @@ const AllRoomByTabular = () => {
       </div>
     );
   }
+
+  console.log(data);
 
   const handleUpdate = (roomId: any) => {
     setSelectedRoomId(roomId);
@@ -46,7 +50,26 @@ const AllRoomByTabular = () => {
     setCreateDialogOpen(true);
   };
 
-  function handleDelete(id: string) {
+  function handleDelete(id: string, deleted: boolean) {
+    console.log(deleted);
+
+    //deleted room will not be delete twice
+    if (deleted && !alertShown) {
+      swal({
+        title: "Delete Failed",
+        text: "You can't delete this room as it has already been deleted.",
+        icon: "error",
+        //@ts-expect-error :'buttons' is generated error
+        buttons: "Okay",
+      }).then(() => {
+        setAlertShown(false);
+      });
+
+      // Set the alert
+      setAlertShown(true);
+
+      return;
+    }
     swal({
       title: "Are you sure to delete?",
       text: "Once deleted, you will not be able to recover this room!",
@@ -110,6 +133,7 @@ const AllRoomByTabular = () => {
             <TableHead className="text-[#557856] font-medium text-base">
               Price
             </TableHead>
+
             <TableHead className="text-[#557856] font-medium text-base">
               Action
             </TableHead>
@@ -132,11 +156,14 @@ const AllRoomByTabular = () => {
                 <TableCell> {room?.floorNo}</TableCell>
                 <TableCell>{room?.capacity}</TableCell>
                 <TableCell>{room?.pricePerSlot}</TableCell>
+
                 <TableCell className="flex gap-3 mt-3 items-center">
                   <button onClick={() => handleUpdate(room?._id)}>
                     <FaPenToSquare className="text-[#557856] text-xl" />
                   </button>
-                  <button onClick={() => handleDelete(room?._id)}>
+                  <button
+                    onClick={() => handleDelete(room?._id, room?.isDeleted)}
+                  >
                     <RiDeleteBack2Fill className="text-red-600 text-2xl" />
                   </button>
                 </TableCell>

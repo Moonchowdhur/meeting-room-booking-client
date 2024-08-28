@@ -19,44 +19,13 @@ const MeetingRooms = () => {
   //newly added
   const debouncedSearchQuery = useDebounce(searchQuery, 1000);
 
-  // const filteredRooms = useMemo(() => {
-  //   let rooms = data?.data || [];
+  // Filter and map the data
+  const availableRooms = data?.data.filter((room: any) => !room.isDeleted);
 
-  //   if (searchQuery) {
-  //     rooms = rooms.filter(
-  //       (room: any) =>
-  //         room.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-  //         room.amenities.some((amenity: string) =>
-  //           amenity.toLowerCase().includes(searchQuery.toLowerCase())
-  //         ) ||
-  //         room.pricePerSlot.toString().includes(searchQuery)
-  //     );
-  //   }
-
-  //   // Filter by  range
-  //   if (selectedCapacityRange) {
-  //     rooms = rooms.filter((room: any) => {
-  //       const [min, max] = selectedCapacityRange.split("-").map(Number);
-  //       return room.capacity >= min && room.capacity <= max;
-  //     });
-  //   }
-
-  //   // Sort by price per slot
-  //   if (sortOption === "priceLowToHigh") {
-  //     rooms = [...rooms].sort(
-  //       (a: any, b: any) => a.pricePerSlot - b.pricePerSlot
-  //     );
-  //   } else if (sortOption === "priceHighToLow") {
-  //     rooms = [...rooms].sort(
-  //       (a: any, b: any) => b.pricePerSlot - a.pricePerSlot
-  //     );
-  //   }
-
-  //   return rooms;
-  // }, [data, searchQuery, selectedCapacityRange, sortOption]);
+  console.log(availableRooms);
 
   const filteredRooms = useMemo(() => {
-    let rooms = data?.data || [];
+    let rooms = availableRooms || [];
 
     if (debouncedSearchQuery) {
       rooms = rooms.filter(
@@ -101,7 +70,7 @@ const MeetingRooms = () => {
 
     return rooms;
   }, [
-    data,
+    availableRooms,
     debouncedSearchQuery,
     selectedPriceRange,
     selectedCapacityRange,

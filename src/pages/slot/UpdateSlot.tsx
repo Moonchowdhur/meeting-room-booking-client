@@ -80,6 +80,11 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
     );
   }
 
+  // Filter and map the data
+  const availableRooms = RoomData?.data.filter((room: any) => !room.isDeleted);
+
+  console.log(availableRooms);
+
   // Function to handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     console.log("Form data:", data);
@@ -104,6 +109,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
         toast.error(res?.message, { id: toastId });
       }
     } catch (err) {
+      console.log(err);
       toast.error("something went wrong.", { id: toastId });
     }
   };
@@ -126,7 +132,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
                   <option value="" disabled selected>
                     Select a Room
                   </option>
-                  {RoomData?.data?.map((room: any) => (
+                  {availableRooms?.map((room: any) => (
                     <option key={room._id} value={room._id}>
                       {`${room.name} - $${room.pricePerSlot}`}
                     </option>

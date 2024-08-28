@@ -20,10 +20,15 @@ const AllRoom = () => {
 
   console.log(data?.data);
 
+  // Filter and map the data
+  const availableRooms = data?.data.filter((room: any) => !room.isDeleted);
+
+  console.log(availableRooms);
+
   return (
     <div className="md:px-12 w-full p-4 mt-40 md:mt-12 rounded-md ">
       {/* title */}
-      {data?.data.length > 0 && (
+      {availableRooms.length > 0 && (
         <h2 className="text-3xl mb-2 font-medium tracking-widest text-center ">
           MEETING<span className="text-[#072047]"> RO</span>OMS
         </h2>
@@ -33,12 +38,12 @@ const AllRoom = () => {
         <div className="w-20 text-center rounded-md  h-[5px] bg-[#809580]"></div>
       </div>
       {/* MEEING ROOM ALL */}
-      {data?.data.length > 0 ? (
+      {availableRooms.length > 0 ? (
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5  justify-between items-center mt-16 rounded-lg">
           {/* card */}
 
-          {data?.data.length > 0 &&
-            data?.data.slice(0, 6)?.map((room: any) => {
+          {availableRooms.length > 0 &&
+            availableRooms?.slice(0, 6)?.map((room: any) => {
               return (
                 <div
                   key={room._id}
@@ -124,7 +129,7 @@ const AllRoom = () => {
           No Product Found
         </h2>
       )}
-      {data?.data.length > 6 && (
+      {availableRooms.length > 6 && (
         <div className="mt-12 flex justify-center">
           <Link
             to="/rooms"
