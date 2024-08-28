@@ -17,7 +17,9 @@ To run the project locally, follow these steps:
 
 - My Website name is Meeting Room Bookings. This website is different kind of meeting room.
 
-- There are Navigation section containing Home, contact us, meeting room , about us.
+- There are Navigation section containing Home, contact us, meeting room , about us and Login.
+
+- For Admin, there is dashboard and for usser it's my booking page.
 
 - In home section, there are a slider section, meeting room, how website works and customer review also.
 
