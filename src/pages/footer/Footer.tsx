@@ -5,13 +5,13 @@ import {
   AiFillHome,
   AiFillGithub,
 } from "react-icons/ai";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
     <div className="bg-[#ccd5cc] z-50 md:px-12 w-full mt-20 p-4 md:mt-30 rounded-md">
       <footer className="footer flex flex-col md:flex-row justify-between items-start">
-        <div className="flex flex-col mx-4 md:mx-0  items-start">
+        <div className="flex flex-col mx-4 md:mx-0 items-start">
           <div className="flex items-center gap-3">
             <img
               src="https://i.ibb.co/7Y3rTBz/yaroslav-kolodiy-6qx-THv-BUq-Eg-unsplash.jpg"
@@ -22,7 +22,7 @@ const Footer = () => {
               Meeting Room Booking
             </span>
           </div>
-          <p className="mt-2 text-lg">This website is for booking room.</p>
+          <p className="mt-2 text-lg">This website is for booking rooms.</p>
           <div className="flex text-3xl items-center gap-4 my-5">
             <NavLink to="https://www.facebook.com/meema.chowdhury.5?mibextid=ZbWKwL">
               <BsFacebook className="text-blue-500" />
@@ -36,12 +36,12 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="flex mx-4 md:mx-0  flex-col md:flex-row md:gap-20 w-full md:w-auto">
-          <div className="mt-4  md:mt-0">
+        <div className="flex mx-4 md:mx-0 flex-col md:flex-row md:gap-20 w-full md:w-auto">
+          <div className="mt-4 md:mt-0">
             <span className="footer-title text-xl">About</span>
             <ul className="mt-2">
               <li>
-                <a className="link  link-hover" href="#">
+                <a className="link link-hover" href="#">
                   Best Room by popularity
                 </a>
               </li>
@@ -61,30 +61,26 @@ const Footer = () => {
             <span className="footer-title text-xl">Helpful Links</span>
             <ul className="mt-2">
               <li>
-                <a className="link link-hover" href="#">
+                <Link className="link link-hover hover:text-green-800 hover:font-medium" to="/about">
                   Join Our Team
-                </a>
+                </Link>
+              </li>
+
+              <li>
+                <NavLink className="link link-hover" to="/terms-of-service">
+                  Terms of Service
+                </NavLink>
               </li>
               <li>
-                <a className="link link-hover" href="#">
-                  Keyboard Info
-                </a>
-              </li>
-              <li>
-                <a className="link link-hover" href="#">
-                  Terms & Conditions
-                </a>
-              </li>
-              <li>
-                <a className="link link-hover" href="#">
+                <NavLink className="link link-hover" to="/privacy-policy">
                   Privacy Policy
-                </a>
+                </NavLink>
               </li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-4 mx-4 md:mx-0  md:mt-0">
+        <div className="mt-4 mx-4 md:mx-0 md:mt-0">
           <span className="footer-title text-xl">Contact Us</span>
           <div className="mt-2">
             <div className="flex items-center gap-2">

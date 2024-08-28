@@ -53,7 +53,7 @@ const Hero = () => {
                 <p className="mb-5 text-xl ">{item.description}</p>
                 <Link
                   to="/rooms"
-                  className="bg-[#7AAC7B] mt-6 text-[#072047] text-base hover:bg-[#557856] tracking-wide font-bold py-2 px-4 rounded-lg"
+                  className="bg-[#7AAC7B] mt-8 text-white text-base hover:bg-[#557856] font-medium py-3 px-5 tracking-wider rounded-lg"
                 >
                   Book Now
                 </Link>
