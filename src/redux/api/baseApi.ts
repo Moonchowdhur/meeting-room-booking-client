@@ -25,11 +25,3 @@ export const baseApi = createApi({
 
   endpoints: () => ({}),
 });
-
-// export const baseApi = createApi({
-//   reducerPath: "baseApi",
-//   baseQuery: fetchBaseQuery({
-//     baseUrl: "https://mongoose-master-assignment-jet.vercel.app/api",
-//   }),
-//   endpoints: () => ({}),
-// });
