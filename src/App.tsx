@@ -49,7 +49,7 @@ function App() {
   return (
     <>
       <div className="">
-        <div className="md:min-h-[calc(100vh-70px)]">
+        <div className="md:min-h-[calc(100vh-70px)]  ">
           <Navbar />
           <Outlet />
           <ScrollToTop />

@@ -47,7 +47,7 @@ const AllSlotByTabular = () => {
     setCreateDialogOpen(true);
   };
 
-  function handleDelete(id: string, booked) {
+  function handleDelete(id: string, booked: boolean) {
     console.log(booked);
 
     //deleted slot will not be delete twice
@@ -124,7 +124,7 @@ const AllSlotByTabular = () => {
             </TableHead>
 
             <TableHead className="text-[#557856] font-medium text-left text-base">
-            Booked
+              Booked
             </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
               Actions

@@ -15,7 +15,7 @@ const MyBooking = () => {
   }
 
   return (
-    <div className="container mx-auto py-10">
+    <div className="container mx-auto mt-40 md:mt-0 py-10">
       <h2 className="text-3xl mb-2 font-medium tracking-widest text-center">
         Bookings
       </h2>

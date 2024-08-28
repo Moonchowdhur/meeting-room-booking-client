@@ -111,7 +111,7 @@ const Checkout = () => {
     (singleRoom?.data.pricePerSlot || 0);
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto mt-40 md:mt-0 px-4 py-8">
       {bookedData?.bookingData ? (
         <div className="bg-white p-6 rounded-lg shadow-md">
           <h2 className="text-3xl mb-2 font-medium tracking-widest text-center">
@@ -128,7 +128,7 @@ const Checkout = () => {
               <img
                 src={singleRoom?.data.image}
                 alt={singleRoom?.data.name}
-                className="w-10/12 h-[500px] rounded-lg mb-4"
+                className="w-ful h-full md:w-10/12 md:h-[500px] rounded-lg mb-4"
               />
               <div className="flex items-center gap-4">
                 <p className="font-medium text-[#455e45]">
@@ -165,11 +165,11 @@ const Checkout = () => {
             </div>
           )}
 
-          <div className="bg-[#dbe1db] w-2/12 p-2  mt-5 rounded-lg mb-4">
+          <div className="bg-[#dbe1db] md:w-2/12 p-2  mt-5 rounded-lg mb-4">
             <p>
               <strong>Payment Method:</strong>
             </p>
-            <select className="border p-2 rounded-lg w-full">
+            <select className="border mt-2 p-2 rounded-lg w-full">
               <option value="cod">Cash on Delivery</option>
             </select>
           </div>

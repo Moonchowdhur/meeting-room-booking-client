@@ -20,11 +20,11 @@ const MainLayout = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
-    <div className="flex">
+    <div className="flex ">
       {/* Sidebar */}
       <div
         id="sidebar"
-        className={`fixed z-20 inset-y-0 left-0 w-64 mt-[68px] bg-[#5b765c] text-white transform transition-transform ${
+        className={` z-20 inset-y-0 left-0 w-64 sticky h-6/12 bg-[#5b765c] text-white transform transition-transform ${
           isSidebarOpen ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0`}
       >
@@ -87,7 +87,7 @@ const MainLayout = () => {
       {isSidebarOpen && <Backdrop onClick={() => setIsSidebarOpen(false)} />}
 
       {/* Main content */}
-      <div className="flex-1 ml-0 lg:ml-64 p-4">
+      <div className="flex-1 ml-0 lg:ml-12 p-4">
         <button
           id="toggleSidebar"
           className="lg:hidden bg-[#5b765c] text-white px-4 py-2 rounded"
@@ -95,7 +95,7 @@ const MainLayout = () => {
         >
           {isSidebarOpen ? "Close drawer" : "Open drawer"}
         </button>
-        <div className="p-4">
+        <div className="mt-2">
           <Outlet />
         </div>
       </div>

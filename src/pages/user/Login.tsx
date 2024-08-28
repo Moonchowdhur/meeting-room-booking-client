@@ -56,7 +56,7 @@ const Login = () => {
   };
 
   return (
-    <div className="md:flex items-center justify-center  h-full p-16">
+    <div className="md:flex items-center justify-center  h-full md:p-16">
       <div className="md:flex mb-20 mt-36  gap-10 items-center justify-center md:mt-7  ">
         {/* login pic */}
         <div className=" ">

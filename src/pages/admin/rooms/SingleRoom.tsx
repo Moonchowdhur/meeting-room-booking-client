@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useGetSingleRoomQuery } from "@/redux/features/admin/roomManagementApi";
 import { useParams, Link } from "react-router-dom";
 import { FaRupeeSign, FaPlus } from "react-icons/fa";
@@ -19,7 +20,7 @@ const SingleRoom = () => {
 
   console.log(selectedImage);
 
-  const handleImageClick = (image) => {
+  const handleImageClick = (image: any) => {
     setSelectedImage(image);
     console.log("Image selected:", image);
   };
@@ -48,7 +49,7 @@ const SingleRoom = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl border border-[#c8d1c9] p-1 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
           <div className="relative">
-            <div className="flex flex-col md:flex-row items-start">
+            <div className="md:flex flex-col md:flex-row items-start">
               {/* Main Image */}
               <div className="flex-grow p-2">
                 <div
@@ -62,8 +63,8 @@ const SingleRoom = () => {
               </div>
 
               {/* Thumbnail Images */}
-              <div className="flex md:flex-col gap-4 mt-4 md:mt-2 md:ml-2">
-                {singleRoom.data.image.map((image, index) => (
+              <div className="flex  md:flex-col gap-4 mt-4 md:mt-2 md:ml-2">
+                {singleRoom.data.image.map((image: any, index: number) => (
                   <button
                     key={index}
                     className="w-24 h-24 rounded-md cursor-pointer"
@@ -82,10 +83,12 @@ const SingleRoom = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 bg-black opacity-50"></div>
-            <div className="absolute bottom-0 left-0 right-0 px-6 py-4 bg-gradient-to-t from-black to-transparent text-white">
-              <h1 className="text-3xl font-bold">{name}</h1>
-              <div className="flex justify-between mt-2">
+            <div className="absolute inset-0 bg-black opacity-25"></div>
+            <div className="absolute bottom-32 md:bottom-0  left-0 right-0 px-6 py-4 bg-gradient-to-t from-black to-transparent text-white">
+              <h1 className="text-xl   md:text-3xl font-bold">
+                {name}
+              </h1>
+              <div className="flex justify-between md:mt-2">
                 <div className="flex items-center text-white">
                   <FaRupeeSign className="text-white text-base" />
                   <h2 className="text-base font-normal">{pricePerSlot}</h2>
@@ -125,7 +128,7 @@ const SingleRoom = () => {
               <div>
                 <p className="text-lg font-semibold">Amenities:</p>
                 <ul className="list-disc list-inside text-gray-700">
-                  {amenities.map((amenity, index) => (
+                  {amenities.map((amenity: string, index: number) => (
                     <li key={index} className="flex items-center gap-2">
                       <FaPlus className="text-gray-700 text-xs" />
                       {amenity}

@@ -19,7 +19,7 @@ const BookingProcess = () => {
   const user = useAppSelector((state) => state.auth.user);
   const { data: userData } = authApi.useGetUserByEmailQuery(user?.email);
   const { data: slotData, isLoading } = useGetAllSlotsAvailabilityQuery({
-    date: selectedDate.toISOString().split("T")[0], 
+    date: selectedDate.toISOString().split("T")[0],
     roomId,
   });
 
@@ -132,11 +132,11 @@ const BookingProcess = () => {
           <p className="text-gray-500">User information not available.</p>
         )}
 
-        <div className="mt-6 flex justify-between">
+        <div className="mt-6 gap-2 flex justify-between">
           <button
             onClick={handleBookingConfirmation}
             disabled={selectedSlots.length === 0}
-            className={`bg-[#557856] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#455e45] transition ${
+            className={`bg-[#557856] text-white px-6 py-3 rounded-lg text-base md:text-lg font-semibold hover:bg-[#455e45] transition ${
               selectedSlots.length === 0
                 ? "opacity-50 text-gray-500 cursor-not-allowed"
                 : ""
@@ -146,7 +146,7 @@ const BookingProcess = () => {
           </button>
           <Link
             to={`/room/${roomId}`}
-            className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-gray-400 transition"
+            className="bg-gray-300 text-gray-700 px-6 py-3 rounded-lg text-base md:text-lg  font-semibold hover:bg-gray-400 transition"
           >
             Back to Room Details
           </Link>

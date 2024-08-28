@@ -109,7 +109,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
 
   // Function to handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    // console.log("Form data:", data);
+    console.log("Form data:", data);
     // Reset form after submission
     reset();
     const toastId = toast.loading("updating slot...");
