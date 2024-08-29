@@ -40,7 +40,7 @@ const AllRoom = () => {
       {/* MEEING ROOM ALL */}
       {availableRooms?.length > 0 ? (
         <div className="grid md:grid-cols-3 grid-cols-1 gap-5  justify-between items-center mt-16 rounded-lg">
-          {/* card */}
+          {/* card- */}
 
           {availableRooms?.length > 0 &&
             availableRooms?.slice(0, 6)?.map((room: any) => {
