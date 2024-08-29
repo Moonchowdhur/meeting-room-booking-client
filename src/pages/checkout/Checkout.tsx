@@ -126,7 +126,7 @@ const Checkout = () => {
           ) : (
             <div>
               <img
-                src={singleRoom?.data.image}
+                src={singleRoom?.data.image[0]}
                 alt={singleRoom?.data.name}
                 className="w-ful h-full md:w-10/12 md:h-[500px] rounded-lg mb-4"
               />

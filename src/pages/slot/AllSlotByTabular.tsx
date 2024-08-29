@@ -54,7 +54,7 @@ const AllSlotByTabular = () => {
     if (booked && !alertShown) {
       swal({
         title: "Delete Failed",
-        text: "You can't delete this slot as it has already been deleted.",
+        text: "You can't delete this slot as it has already been booked.",
         icon: "error",
         //@ts-expect-error :'buttons' is generated error
         buttons: "Okay",

@@ -148,7 +148,7 @@ const AllRoomByTabular = () => {
                 <TableCell>{room?.name}</TableCell>
                 <TableCell>
                   <img
-                    src={room?.image}
+                    src={room?.image[0]}
                     className="w-12 h-12 rounded-2xl"
                     alt=""
                   />

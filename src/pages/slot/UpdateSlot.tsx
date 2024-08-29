@@ -211,7 +211,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
                   type="submit"
                   className="btn btn-primary text-lg px-6 py-3 bg-[#7AAC7B] text-[#072047] font-semibold rounded-md hover:bg-[#a2c5a3] "
                 >
-                  Create Slot
+                  Update Slot
                 </button>
               </div>
             </form>
