@@ -10,11 +10,7 @@ const ChooseMeetingRoom = () => {
       description: "All payments are encrypted and securely processed.",
       icon: "🔒",
     },
-    // {
-    //   title: "24/7 Customer Support",
-    //   description: "We are here to assist you any time of the day.",
-    //   icon: "🕒",
-    // },
+  
     {
       title: "Exclusive Discounts",
       description:
@@ -35,7 +31,7 @@ const ChooseMeetingRoom = () => {
     {
       title: "No Hidden Fees",
       description: "What you see is what you pay. No surprises at checkout.",
-      icon: "📝", // You can replace this with an actual icon if needed.
+      icon: "📝", 
     },
   ];
 

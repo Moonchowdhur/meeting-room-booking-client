@@ -32,7 +32,7 @@ const MyBooking = () => {
                 className="bg-white border p-4 border-[#49674a]   rounded-lg shadow-md overflow-hidden"
               >
                 <img
-                  src={booking.room.image}
+                  src={booking.room.image[0]}
                   alt={booking.room.name}
                   className="w-full rounded-xl h-48 object-cover relative inset-0 bg-[#072047] opacity-70"
                 />

@@ -52,7 +52,6 @@ const AllRoom = () => {
                   <div>
                     <img
                       src={room?.image[0]}
-                      // src="https://i.pinimg.com/550x/eb/4d/bb/eb4dbb0f4398f5a5276291c65e58c7e8.jpg"
                       className="h-[350px] w-[500px] relative inset-0 bg-[#072047] opacity-70 "
                       alt=""
                     />

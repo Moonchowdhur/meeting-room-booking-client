@@ -158,10 +158,7 @@ const Checkout = () => {
                 Total Cost: ${totalCost}
               </p>
 
-              {/* <p>
-             <strong>Time Slots:</strong>{" "}
-             {bookedData?.bookingData?.slots.join(", ")}
-           </p> */}
+             
             </div>
           )}
 

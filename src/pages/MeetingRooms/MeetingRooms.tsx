@@ -16,7 +16,7 @@ const MeetingRooms = () => {
   const [currentPage, setCurrentPage] = useState(1); //  added
   const roomsPerPage = 6; // added
 
-  //newly added
+
   const debouncedSearchQuery = useDebounce(searchQuery, 1000);
 
   // Filter and map the data
@@ -77,7 +77,7 @@ const MeetingRooms = () => {
     sortOption,
   ]);
 
-  //  newly added
+
   const indexOfLastRoom = currentPage * roomsPerPage;
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;
   const currentRooms = filteredRooms.slice(indexOfFirstRoom, indexOfLastRoom);

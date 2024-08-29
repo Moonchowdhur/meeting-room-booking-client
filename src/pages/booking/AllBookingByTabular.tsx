@@ -167,11 +167,7 @@ const AllBookingByTabular = () => {
                   variant="danger"
                   onClick={() => handleReject(booking._id)}
                 >
-                  {/* <img
-                    src="https://i.ibb.co/GWYWfMr/Antu-task-reject-svg.png"
-                    className="w-7  h-7 rounded-full"
-                    alt=""
-                  /> */}
+                
                   <TiDelete className="text-red-600 text-3xl" />
                 </Button>
               ) : (
@@ -181,21 +177,13 @@ const AllBookingByTabular = () => {
                   variant="success"
                   onClick={() => handleApprove(booking._id)}
                 >
-                  {/* <img
-                    src="https://i.ibb.co/54Fwtvn/tick-icon-accept-approve-sign-design-free-png.webp"
-                    className="w-5  h-5 rounded-full"
-                    alt=""
-                  /> */}
+                
                   <ImCheckboxChecked className="text-green-600 text-lg" />
                 </Button>
               )}
 
               <button onClick={() => handleDelete(booking._id)}>
-                {/* <img
-                  src="https://i.ibb.co/DD89FWP/images-3.jpg"
-                  className="w-6 h-6 rounded-full"
-                  alt=""
-                /> */}
+              
                 <MdAutoDelete className="text-orange-600 text-2xl" />
               </button>
             </TableCell>

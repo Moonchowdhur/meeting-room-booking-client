@@ -41,9 +41,7 @@ const ContactUs = () => {
             <h2 className="text-4xl tracking-widest mb-1 font-bold w-10/12 ">
               Leave Us a Message
             </h2>
-            {/* <div className="flex justify-center">
-              <div className="w-20  text-center rounded-md  h-[5px] bg-[#809580]"></div>
-            </div> */}
+         
             <h2 className=" md:tracking-widest mb-7 mt-7  md:w-8/12 ">
               We value your feedback and inquiries. If you have any questions,
               concerns, or just want to share your thoughts, please leave us a

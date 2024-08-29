@@ -122,7 +122,6 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
     };
     // console.log(updatedData);
     try {
-      //call addAcademicSemester for data saving
       const res = await updateSlot(updatedData).unwrap();
       console.log(res);
 
