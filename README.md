@@ -1,9 +1,26 @@
-# Project Name
+# Project Name & Introduction
 
-- Meeting Room Booking System for Co-working spaces
+- Meeting Room Booking System for Co-working spaces.This website is different kind of meeting room and user can book any room depending their slot.
 
-* Live URL
-  https://room-booking-redux.vercel.app/
+# Admin Credentials
+
+- Email: kaushani@gmail.com
+- password: admin12345
+
+# Project Description
+
+- Design an intuitive and easy-to-navigate interface that allows users to effortlessly browse, filter, and select meeting rooms based on their specific needs.
+- Implement real-time room availability tracking to ensure users can view and book available slots instantly \* without any scheduling conflicts.
+- Develop a smooth booking flow that allows users to select preferred dates, times, and rooms, and complete their bookings with minimal steps.
+- Enable users to choose from various time slots, ensuring flexibility to accommodate different meeting durations and schedules.
+- Provide detailed information about each room, including capacity, amenities, pricing, and high-quality images, to help users make informed booking decisions.
+- Ensure the platform is fully responsive, providing an optimal user experience across all devices, including desktops, tablets, and smartphones.
+- Create an admin panel for co-working space owners to manage room listings, availability, pricing, and monitor bookings.
+- Implement a feedback and ratings system where users can leave reviews of their experiences, helping to maintain high standards and user trust.
+
+# Live URL
+
+https://room-booking-redux.vercel.app/
 
 # How to run the project in locally
 
