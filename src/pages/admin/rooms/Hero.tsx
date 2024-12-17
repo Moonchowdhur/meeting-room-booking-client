@@ -11,23 +11,23 @@ const carouselItems = [
   {
     image:
       "https://workitspaces.com.au/wp-content/uploads/2022/02/meeting-room-02.jpeg",
-    title: "Book Your Ideal Meeting Room with Ease.",
+    title: "Book Your Ideal Meeting Room with Ease",
     description:
-      "Efficient, hassle-free room booking for all your meeting needs.",
+      "Efficient, hassle-free room booking for all your meeting needs",
+  },
+  {
+    image:
+      "https://workitspaces.com.au/wp-content/uploads/2022/02/meeting-room-02.jpeg",
+    title: "Book Your Ideal Meeting Room with Ease",
+    description:
+      "Efficient, hassle-free room booking for all your meeting needs",
   },
   {
     image:
       "https://workitspaces.com.au/wp-content/uploads/2022/02/meeting-room-02.jpeg",
     title: "Book Your Ideal Meeting Room with Ease.",
     description:
-      "Efficient, hassle-free room booking for all your meeting needs.",
-  },
-  {
-    image:
-      "https://workitspaces.com.au/wp-content/uploads/2022/02/meeting-room-02.jpeg",
-    title: "Book Your Ideal Meeting Room with Ease.",
-    description:
-      "Efficient, hassle-free room booking for all your meeting needs.",
+      "Efficient, hassle-free room booking for all your meeting needs",
   },
 ];
 
@@ -38,7 +38,7 @@ const Hero = () => {
         {carouselItems.map((item, index) => (
           <CarouselItem key={index}>
             <div
-              className="relative md:px-12 mt-40 w-full p-4 md:mt-16 rounded-md min-h-[500px] flex items-center justify-center"
+              className="relative md:px-12 bg-red-600 w-full p-4  rounded-md min-h-[430px] flex items-center justify-center"
               style={{
                 backgroundImage: `url('${item.image}')`,
                 backgroundSize: "cover",

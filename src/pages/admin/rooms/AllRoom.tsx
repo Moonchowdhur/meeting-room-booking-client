@@ -39,11 +39,11 @@ const AllRoom = () => {
       </div>
       {/* MEEING ROOM ALL */}
       {availableRooms?.length > 0 ? (
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5  justify-between items-center mt-16 rounded-lg">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-5  justify-between items-center mt-16 rounded-lg">
           {/* card- */}
 
           {availableRooms?.length > 0 &&
-            availableRooms?.slice(0, 6)?.map((room: any) => {
+            availableRooms?.slice(0, 8)?.map((room: any) => {
               return (
                 <div
                   key={room._id}

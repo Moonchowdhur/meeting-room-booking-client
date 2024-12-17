@@ -44,9 +44,9 @@ const router = createBrowserRouter([
       {
         path: `/room/:id`,
         element: (
-          <ProtectedRoute role="user">
-            <SingleRoom />
-          </ProtectedRoute>
+          // <ProtectedRoute role="user">
+          <SingleRoom />
+          // </ProtectedRoute>
         ),
       },
       {
