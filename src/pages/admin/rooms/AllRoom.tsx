@@ -26,7 +26,7 @@ const AllRoom = () => {
   //console.log(availableRooms);
 
   return (
-    <div className="md:px-12 w-full p-4 mt-40 md:mt-12 rounded-md ">
+    <div className="md:px-4 w-full p-4 mt-40 md:mt-6 rounded-md ">
       {/* title */}
       {availableRooms?.length > 0 && (
         <h2 className="text-3xl mb-2 font-medium tracking-widest text-center ">
@@ -39,7 +39,7 @@ const AllRoom = () => {
       </div>
       {/* MEEING ROOM ALL */}
       {availableRooms?.length > 0 ? (
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-5  justify-between items-center mt-16 rounded-lg">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-5  justify-between items-center mt-10 rounded-lg">
           {/* card- */}
 
           {availableRooms?.length > 0 &&

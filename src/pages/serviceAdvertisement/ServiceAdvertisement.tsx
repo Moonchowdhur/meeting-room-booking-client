@@ -41,7 +41,7 @@ const ServiceAdvertisement = () => {
   }, []);
 
   return (
-    <section className="md:px-4 w-full p-4  mt-40 md:mt-6 rounded-md">
+    <section className="md:px-4 w-full p-4   mt-40 md:mt-6 rounded-md">
       <div className="container mx-auto text-center">
         <h2 className="text-3xl mb-2 font-medium tracking-widest text-center">
           OUR SERVICES

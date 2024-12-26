@@ -30,7 +30,7 @@ const steps = [
 
 const HowWorkWebsite = () => {
   return (
-    <div className="py-16 md:mt-12  px-8 ">
+    <div className="md:px-4 w-full p-4   mt-40 md:mt-6 rounded-md">
       <h2 className="text-3xl mb-2  font-medium tracking-widest text-center">
         HOW IT WORKS
       </h2>
@@ -38,7 +38,7 @@ const HowWorkWebsite = () => {
       <div className="flex justify-center">
         <div className="w-20 text-center rounded-md  h-[5px] bg-[#809580]"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-16">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-10">
         {steps.map((step, index) => (
           <div
             key={index}
