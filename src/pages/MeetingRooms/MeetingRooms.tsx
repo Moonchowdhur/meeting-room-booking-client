@@ -13,8 +13,8 @@ const MeetingRooms = () => {
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>("");
 
   const [sortOption, setSortOption] = useState<string>("");
-  const [currentPage, setCurrentPage] = useState(1); //  added
-  const roomsPerPage = 6; // added
+  const [currentPage, setCurrentPage] = useState(1);
+  const roomsPerPage = 8;
 
   const debouncedSearchQuery = useDebounce(searchQuery, 1000);
 
@@ -152,7 +152,7 @@ const MeetingRooms = () => {
 
       {/* Meeting Room Cards */}
       {currentRooms?.length > 0 ? (
-        <div className="grid md:grid-cols-3 grid-cols-1 gap-5 justify-between items-center mt-16 rounded-lg">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-5 justify-between items-center mt-16 rounded-lg">
           {currentRooms.map((room: any) => (
             <div key={room._id} className="bg-[#49674a] border rounded-lg">
               <div>
