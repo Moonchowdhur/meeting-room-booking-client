@@ -56,19 +56,19 @@ const CreateSlot = ({ isDialogOpen, setIsDialogOpen }: any) => {
   }
 
   // Filter and map the data
-  const availableRooms = allRoom?.data.filter((room:any) => !room.isDeleted);
+  const availableRooms = allRoom?.data.filter((room: any) => !room.isDeleted);
 
-  console.log(availableRooms);
+  //console.log(availableRooms);
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("Form data:", data);
+    //console.log("Form data:", data);
     // Reset form after submission
     reset();
     const toastId = toast.loading("adding slot...");
 
     try {
       const res = await addSlot(data).unwrap();
-      console.log(res);
+      //console.log(res);
 
       if (res?.success) {
         toast.success(res?.data?.message, { id: toastId });

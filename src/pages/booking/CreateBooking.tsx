@@ -33,7 +33,7 @@
 //   const user = useAppSelector((state) => state.auth.user);
 //   const [addBooking] = useAddBookingsMutation();
 
-//   console.log(slot);
+//   //console.log(slot);
 
 //   //! slot remove add(start)
 //   const [selectedSlots, setSelectedSlots] = useState([]);
@@ -55,7 +55,7 @@
 //   //! remove when it comes from redux apoi
 //   const [userr, setUserr] = useState(null);
 
-//   // console.log(userr, user, slot?.data);
+//   // //console.log(userr, user, slot?.data);
 
 //   //! usereffetct tule then, redux dye fetch korte hbe, prblem hchhe server api te
 //   useEffect(() => {
@@ -79,10 +79,10 @@
 //     );
 //   }
 
-//   // console.log(data?.data);
+//   // //console.log(data?.data);
 
 //   const onSubmit = async (data) => {
-//     console.log(data);
+//     //console.log(data);
 
 //     const selectedSlotIds = data.slots;
 
@@ -126,10 +126,10 @@
 //     // try {
 //     //   const user = userr?.data?._id;
 //     //   const bookingData = { ...data, user, slots: data.slots };
-//     //   console.log("Booking data to send:", bookingData);
+//     //   //console.log("Booking data to send:", bookingData);
 
 //     //   const response = await addBooking(bookingData).unwrap();
-//     //   console.log("Booking created:", response);
+//     //   //console.log("Booking created:", response);
 //     //   // Handle successful booking creation, e.g., show a success message, redirect, etc.
 //     // } catch (error) {
 //     //   console.error("Failed to create booking:", error);

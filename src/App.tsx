@@ -10,12 +10,12 @@ import Footer from "./pages/footer/Footer";
 function App() {
   const bookedData = useAppSelector((state) => state.booking);
 
-  // console.log(bookedData);
+  // //console.log(bookedData);
 
   useEffect(() => {
     const handleBeforeUnload = (event: any) => {
       if (bookedData?.bookingData) {
-        console.log(bookedData);
+        // //console.log(bookedData);
         event.preventDefault();
         event.returnValue = "";
         swal({

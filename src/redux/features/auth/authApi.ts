@@ -4,7 +4,7 @@ export const authApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     login: builder.mutation({
       query: (uderInfo) => {
-        console.log("userInfo==>", uderInfo);
+        //console.log("userInfo==>", uderInfo);
         return {
           url: "auth/login",
           method: "POST",
@@ -14,7 +14,7 @@ export const authApi = baseApi.injectEndpoints({
     }),
     register: builder.mutation({
       query: (uderInfo) => {
-        console.log("userInfo==>", uderInfo);
+        //console.log("userInfo==>", uderInfo);
         return {
           url: "auth/signup",
           method: "POST",
@@ -24,14 +24,14 @@ export const authApi = baseApi.injectEndpoints({
     }),
     getUserByEmail: builder.query({
       query: (email) => {
-        console.log(email);
+        //console.log(email);
         return {
           url: `auth/${email}`,
           method: "GET",
         };
       },
       // transformResponse: (response) => {
-      //   console.log("inside response", response);
+      //   //console.log("inside response", response);
       //   return {
       //     data: response.data,
       //   };

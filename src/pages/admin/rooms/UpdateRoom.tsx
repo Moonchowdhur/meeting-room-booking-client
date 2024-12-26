@@ -46,7 +46,7 @@ const updateMeetingRoomValidationSchema = z.object({
 });
 
 const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
-  console.log(roomId, "roomId");
+  //console.log(roomId, "roomId");
   const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
 
   const [updateRoom] = roomManagementApi.useUpdateRoomMutation();
@@ -88,7 +88,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
     isLoading,
   } = roomManagementApi.useGetSingleRoomQuery(roomId);
 
-  console.log(roomData);
+  //console.log(roomData);
 
   if (isLoading) {
     return (
@@ -117,11 +117,11 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
     return;
   }
 
-  console.log(errors?.amenities);
+  //console.log(errors?.amenities);
 
   // Function to handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("Form data:", data);
+    //console.log("Form data:", data);
     // Reset form after submission
     reset();
     const toastId = toast.loading("updating room...");
@@ -135,7 +135,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
       image: [],
     });
 
-    console.log(newImage);
+    //console.log(newImage);
 
     const updatedData = {
       rId: roomId,
@@ -152,11 +152,11 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
             : [...(roomData?.data?.image || [])],
       },
     };
-    console.log(updatedData);
+    //console.log(updatedData);
     try {
       //call addAcademicSemester for data saving
       const res = await updateRoom(updatedData).unwrap();
-      console.log(res);
+      //console.log(res);
 
       if (res?.success) {
         toast.success(res?.message, { id: toastId });
@@ -210,9 +210,7 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
     setRoomDetails({ ...roomDetails, image: updatedImages });
   };
 
-
-
-  console.log(roomDetails);
+  //console.log(roomDetails);
   return (
     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       <DialogTrigger>Update</DialogTrigger>

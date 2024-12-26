@@ -18,11 +18,11 @@ const SingleRoom = () => {
     }
   }, [singleRoom]);
 
-  console.log(selectedImage);
+  //console.log(selectedImage);
 
   const handleImageClick = (image: any) => {
     setSelectedImage(image);
-    console.log("Image selected:", image);
+    //console.log("Image selected:", image);
   };
 
   if (isLoading) {

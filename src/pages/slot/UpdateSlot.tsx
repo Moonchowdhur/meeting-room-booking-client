@@ -46,7 +46,7 @@ const slotValidationSchema = z.object({
 });
 
 const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
-  console.log(slotId, "roomId");
+  //console.log(slotId, "roomId");
 
   const [updateSlot] = useUpdateSlotMutation();
 
@@ -66,14 +66,14 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
     resolver: zodResolver(slotValidationSchema),
   });
 
-  const { data: slotData, error } = useGetSingleSlotQuery(slotId);
+  const { data: slotData } = useGetSingleSlotQuery(slotId);
 
   const { data: singleRoom } = useGetSingleRoomQuery(slotData?.data?.room, {
     pollingInterval: 1000,
   });
 
-  console.log(slotData, error);
-  console.log(singleRoom);
+  //console.log(slotData, error);
+  //console.log(singleRoom);
 
   if (isLoading) {
     return (
@@ -86,7 +86,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
   // Filter and map the data
   const availableRooms = RoomData?.data.filter((room: any) => !room.isDeleted);
 
-  // console.log(availableRooms);
+  // //console.log(availableRooms);
 
   if (slotData?.data?.isBooked && !alertShown) {
     // Show the alert only if it hasn't been shown before
@@ -109,7 +109,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
 
   // Function to handle form submission->
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("Form data:", data);
+    //console.log("Form data:", data);
     // Reset form after submission
     reset();
     const toastId = toast.loading("updating slot...");
@@ -120,10 +120,10 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
       // room: data?.room || slotData?.data?.room,
       sId: slotId,
     };
-    // console.log(updatedData);
+    // //console.log(updatedData);
     try {
       const res = await updateSlot(updatedData).unwrap();
-      console.log(res);
+      //console.log(res);
 
       if (res?.success) {
         toast.success(res?.message, { id: toastId });
@@ -132,7 +132,7 @@ const UpdateRoom = ({ slotId, isDialogOpen, setIsDialogOpen }: any) => {
         toast.error(res?.message, { id: toastId });
       }
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       toast.error("something went wrong.", { id: toastId });
     }
   };

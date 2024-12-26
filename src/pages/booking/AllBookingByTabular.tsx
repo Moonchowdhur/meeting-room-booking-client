@@ -47,14 +47,14 @@ const AllBookingByTabular = () => {
       bId: bookingId,
     };
 
-    console.log(data);
+    //console.log(data);
 
     try {
       await updateBooking(data).unwrap();
       toast.success("Booking approved successfully");
     } catch (err) {
       toast.error("Failed to approve booking");
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -66,14 +66,14 @@ const AllBookingByTabular = () => {
       bId: bookingId,
     };
 
-    console.log(data);
+    //console.log(data);
 
     try {
       await updateBooking(data).unwrap();
       toast.success("Booking rejected successfully");
     } catch (err) {
       toast.error("Failed to reject booking");
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -113,7 +113,7 @@ const AllBookingByTabular = () => {
       }
     });
 
-    console.log(id, "del");
+    //console.log(id, "del");
   };
 
   return (
@@ -167,7 +167,6 @@ const AllBookingByTabular = () => {
                   variant="danger"
                   onClick={() => handleReject(booking._id)}
                 >
-                
                   <TiDelete className="text-red-600 text-3xl" />
                 </Button>
               ) : (
@@ -177,13 +176,11 @@ const AllBookingByTabular = () => {
                   variant="success"
                   onClick={() => handleApprove(booking._id)}
                 >
-                
                   <ImCheckboxChecked className="text-green-600 text-lg" />
                 </Button>
               )}
 
               <button onClick={() => handleDelete(booking._id)}>
-              
                 <MdAutoDelete className="text-orange-600 text-2xl" />
               </button>
             </TableCell>

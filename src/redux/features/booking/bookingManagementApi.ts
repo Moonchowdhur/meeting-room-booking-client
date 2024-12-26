@@ -12,7 +12,7 @@ export const bookingManagementApi = baseApi.injectEndpoints({
     }),
     addBookings: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: "bookings",
           method: "POST",
@@ -33,7 +33,7 @@ export const bookingManagementApi = baseApi.injectEndpoints({
     }),
     deleteBookings: builder.mutation({
       query: (data) => {
-        console.log("sending bookings==>", data);
+        //console.log("sending bookings==>", data);
         return {
           url: `bookings/${data?.rId}`,
           method: "DELETE",
@@ -43,7 +43,7 @@ export const bookingManagementApi = baseApi.injectEndpoints({
     }),
     updateBookings: builder.mutation({
       query: (data) => {
-        console.log("sending bookings==>", data);
+        //console.log("sending bookings==>", data);
         return {
           url: `bookings/${data?.bId}`,
           method: "PUT",

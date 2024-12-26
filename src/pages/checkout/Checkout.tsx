@@ -42,7 +42,7 @@ const Checkout = () => {
       roomId,
     });
 
-  console.log(slotData);
+  //console.log(slotData);
 
   if (isSlotLoading) {
     return (
@@ -54,7 +54,7 @@ const Checkout = () => {
 
   // Filter and map the data
   const availableSlots = slotData?.data.filter((room: any) => !room.isBooked);
-  console.log(availableSlots);
+  //console.log(availableSlots);
 
   const bookedSlots = availableSlots
     ?.filter((slot: any) => bookedData?.bookingData?.slots?.includes(slot._id))
@@ -63,8 +63,8 @@ const Checkout = () => {
       endTime: slot.endTime,
     }));
 
-  // console.log(slotData);
-  console.log(bookedData?.bookingData?.date, bookedSlots, bookedData);
+  // //console.log(slotData);
+  //console.log(bookedData?.bookingData?.date, bookedSlots, bookedData);
 
   const bookingDate = bookedData?.bookingData?.date || "";
 
@@ -79,13 +79,13 @@ const Checkout = () => {
 
   const handleConfirmBooking = async () => {
     try {
-      // console.log(bookedData);
+      // //console.log(bookedData);
       const data = bookedData?.bookingData;
 
-      console.log(data);
+      //console.log(data);
 
       const res = await addBooking(data).unwrap();
-      console.log(res);
+      //console.log(res);
 
       if (res?.success) {
         setOpenDialog(true);
@@ -157,8 +157,6 @@ const Checkout = () => {
                 <FaRegMoneyBillAlt className="text-2xl text-[#455e45]" />
                 Total Cost: ${totalCost}
               </p>
-
-             
             </div>
           )}
 

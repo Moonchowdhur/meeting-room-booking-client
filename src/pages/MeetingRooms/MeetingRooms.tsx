@@ -16,13 +16,12 @@ const MeetingRooms = () => {
   const [currentPage, setCurrentPage] = useState(1); //  added
   const roomsPerPage = 6; // added
 
-
   const debouncedSearchQuery = useDebounce(searchQuery, 1000);
 
   // Filter and map the data
   const availableRooms = data?.data.filter((room: any) => !room.isDeleted);
 
-  console.log(availableRooms);
+  //console.log(availableRooms);
 
   const filteredRooms = useMemo(() => {
     let rooms = availableRooms || [];
@@ -76,7 +75,6 @@ const MeetingRooms = () => {
     selectedCapacityRange,
     sortOption,
   ]);
-
 
   const indexOfLastRoom = currentPage * roomsPerPage;
   const indexOfFirstRoom = indexOfLastRoom - roomsPerPage;

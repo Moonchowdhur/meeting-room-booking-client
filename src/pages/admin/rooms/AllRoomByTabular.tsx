@@ -40,7 +40,7 @@ const AllRoomByTabular = () => {
     );
   }
 
-  console.log(data);
+  //console.log(data);
 
   const handleUpdate = (roomId: any) => {
     setSelectedRoomId(roomId);
@@ -51,7 +51,7 @@ const AllRoomByTabular = () => {
   };
 
   function handleDelete(id: string, deleted: boolean) {
-    console.log(deleted);
+    //console.log(deleted);
 
     //deleted room will not be delete twice
     if (deleted && !alertShown) {
@@ -96,7 +96,7 @@ const AllRoomByTabular = () => {
       }
     });
 
-    console.log(id, "del");
+    //console.log(id, "del");
   }
 
   return (

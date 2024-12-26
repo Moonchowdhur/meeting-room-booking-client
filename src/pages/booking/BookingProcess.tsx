@@ -27,7 +27,7 @@ const BookingProcess = () => {
 
   const navigate = useNavigate();
 
-  console.log(slotData);
+  //console.log(slotData);
 
   if (isLoading) {
     return (
@@ -39,7 +39,7 @@ const BookingProcess = () => {
 
   // Filter and map the data
   const availableSlots = slotData?.data.filter((room: any) => !room.isBooked);
-  console.log(availableSlots);
+  //console.log(availableSlots);
 
   const handleSlotSelection = (slotId: any) => {
     setSelectedSlots((prevSlots: any) =>
@@ -49,7 +49,7 @@ const BookingProcess = () => {
     );
   };
 
-  console.log(selectedSlots);
+  //console.log(selectedSlots);
 
   const handleBookingConfirmation = () => {
     const payload: TBooking = {
@@ -59,7 +59,7 @@ const BookingProcess = () => {
       user: userData?.data?._id,
     };
 
-    console.log("Booking Payload:", payload);
+    //console.log("Booking Payload:", payload);
     dispatch(setBookingData(payload));
     navigate("/checkout");
   };

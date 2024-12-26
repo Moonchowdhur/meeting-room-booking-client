@@ -13,7 +13,7 @@ export const roomManagementApi = baseApi.injectEndpoints({
     }),
     addRooms: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: "rooms",
           method: "POST",
@@ -24,7 +24,7 @@ export const roomManagementApi = baseApi.injectEndpoints({
     }),
     updateRoom: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: `rooms/${data?.rId}`,
           method: "PUT",
@@ -44,7 +44,7 @@ export const roomManagementApi = baseApi.injectEndpoints({
     }),
     deleteRoom: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: `rooms/${data?.rId}`,
           method: "DELETE",

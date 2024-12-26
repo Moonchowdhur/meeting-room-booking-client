@@ -7,7 +7,7 @@ import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { TiDelete } from "react-icons/ti";
-import { useAppSelector } from "@/redux/hooks";
+// import { useAppSelector } from "@/redux/hooks";
 import { roomManagementApi } from "@/redux/features/admin/roomManagementApi";
 import { toast } from "sonner";
 import swal from "sweetalert";
@@ -59,11 +59,11 @@ const meetingRoomValidationSchema = z.object({
 });
 
 const CreateRoom = ({ isDialogOpen, setIsDialogOpen }: any) => {
-  const { user } = useAppSelector((state) => state.auth);
+  // const { user } = useAppSelector((state) => state.auth);
 
   const [addRoom] = roomManagementApi.useAddRoomsMutation();
 
-  console.log(user, "user");
+  //console.log(user, "user");
 
   const {
     register,
@@ -75,7 +75,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }: any) => {
     resolver: zodResolver(meetingRoomValidationSchema),
   });
 
-  console.log(errors);
+  //console.log(errors);
 
   const [roomDetails, setRoomDetails] = useState<{
     name: string;
@@ -100,7 +100,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }: any) => {
 
   // Function to handle form submission
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
-    console.log("Form data:", data);
+    //console.log("Form data:", data);
     // Reset form after submission
     reset();
     const toastId = toast.loading("adding room...");
@@ -115,7 +115,7 @@ const CreateRoom = ({ isDialogOpen, setIsDialogOpen }: any) => {
     });
     try {
       const res = await addRoom(data).unwrap();
-      console.log(res);
+      //console.log(res);
 
       if (res?.success) {
         toast.success(res?.data?.message, { id: toastId });

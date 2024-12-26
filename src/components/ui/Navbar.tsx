@@ -14,7 +14,7 @@ const Navbar = () => {
   const user = useAppSelector((state) => state.auth.user);
   const dispatch = useAppDispatch();
 
-  console.log(user);
+  //console.log(user);
 
   function handleLogOut() {
     dispatch(Logout());

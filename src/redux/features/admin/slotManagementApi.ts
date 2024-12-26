@@ -4,7 +4,7 @@ export const slotManagementApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
     addslot: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: "slots",
           method: "POST",
@@ -40,7 +40,7 @@ export const slotManagementApi = baseApi.injectEndpoints({
 
     updateSlot: builder.mutation({
       query: (data) => {
-        console.log("sending rooms==>", data);
+        //console.log("sending rooms==>", data);
         return {
           url: `slots/${data?.sId}`,
           method: "PUT",
@@ -76,5 +76,5 @@ export const {
   useDeleteSlotMutation,
   useUpdateSlotMutation,
   useGetSingleSlotQuery,
-  useGetAllSlotFromDbQuery
+  useGetAllSlotFromDbQuery,
 } = slotManagementApi;

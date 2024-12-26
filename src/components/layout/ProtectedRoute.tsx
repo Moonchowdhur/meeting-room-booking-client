@@ -12,7 +12,7 @@ export type TProtectedRoute = {
 
 const ProtectedRoute = ({ children, role }: TProtectedRoute) => {
   const location = useLocation();
-  console.log(role);
+  // //console.log(role);
   const token = useAppSelector((state) => state.auth.token);
 
   let user;

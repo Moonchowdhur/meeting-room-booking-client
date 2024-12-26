@@ -36,7 +36,7 @@ const AllSlotByTabular = () => {
     );
   }
 
-  console.log(data);
+  //console.log(data);
 
   const handleUpdate = (slotId: any) => {
     setSelectedSlotId(slotId);
@@ -48,7 +48,7 @@ const AllSlotByTabular = () => {
   };
 
   function handleDelete(id: string, booked: boolean) {
-    console.log(booked);
+    //console.log(booked);
 
     //deleted slot will not be delete twice
     if (booked && !alertShown) {
@@ -93,7 +93,7 @@ const AllSlotByTabular = () => {
       }
     });
 
-    console.log(id, "del");
+    //console.log(id, "del");
   }
 
   return (

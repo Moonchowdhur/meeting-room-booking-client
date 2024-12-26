@@ -16,10 +16,10 @@ const Login = () => {
   // const [error, setError] = useState("");
   const [eye, setEye] = useState(false);
 
-  const [login, { error }] = useLoginMutation();
+  const [login] = useLoginMutation();
   const dispatch = useAppDispatch();
 
-  console.log(error);
+  //console.log(error);
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
@@ -27,7 +27,7 @@ const Login = () => {
 
     const email = event.target.email.value;
     const password = event.target.password.value;
-    console.log(email, password);
+    //console.log(email, password);
     event.target.reset();
     try {
       const userInfo = {
@@ -38,11 +38,11 @@ const Login = () => {
       //server login
       const res = await login(userInfo).unwrap();
 
-      console.log(res, "res");
+      //console.log(res, "res");
       //* verify token and decode user
       const user = verifyToken(res?.token);
-      console.log("user", user);
-      // console.log(user);
+      //console.log("user", user);
+      // //console.log(user);
       //* set user & token to local state
       dispatch(setUser({ user: user, token: res?.token }));
       toast.success("Logged in", { id: toastId, duration: 2000 });
@@ -51,7 +51,7 @@ const Login = () => {
     } catch (err) {
       // @ts-expect-error: Unreachable code error
       toast.error(err?.data?.message, { id: toastId, duration: 2000 });
-      console.log(err);
+      //console.log(err);
     }
   };
 
@@ -85,6 +85,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 id="email"
+                defaultValue={"user3@gmail.com"}
                 required
                 placeholder="Enter Email"
                 className="border w-full px-2 focus:outline-none text-base py-1 focus:ring-0 focus:border-gray-600 rounded"
@@ -100,6 +101,7 @@ const Login = () => {
                   name="password"
                   id="password"
                   required
+                  defaultValue={"user12345"}
                   placeholder="Enter Password"
                   className="border w-full px-2 focus:outline-none text-base py-1 focus:ring-0 focus:border-gray-600 rounded"
                 />

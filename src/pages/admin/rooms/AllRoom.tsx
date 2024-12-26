@@ -18,12 +18,12 @@ const AllRoom = () => {
     );
   }
 
-  console.log(data?.data);
+  //console.log(data?.data);
 
   // Filter and map the data
   const availableRooms = data?.data.filter((room: any) => !room.isDeleted);
 
-  console.log(availableRooms);
+  //console.log(availableRooms);
 
   return (
     <div className="md:px-12 w-full p-4 mt-40 md:mt-12 rounded-md ">
