@@ -38,7 +38,7 @@ const HowWorkWebsite = () => {
       <div className="flex justify-center">
         <div className="w-20 text-center rounded-md  h-[5px] bg-[#809580]"></div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mt-10">
+      <div className="grid px-16 grid-cols-1 md:grid-cols-4 gap-8 mt-10">
         {steps.map((step, index) => (
           <div
             key={index}
