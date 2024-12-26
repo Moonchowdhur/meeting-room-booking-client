@@ -2,7 +2,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { RootState } from "../store";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: "https://mongoose-master-assignment-nine.vercel.app/api",
+  // baseUrl: "https://mongoose-master-assignment-nine.vercel.app/api",
+  baseUrl: "https://meeting-room-booking-oiym.onrender.com/api",
   // baseUrl: "http://localhost:5000/api",
 
   credentials: "include",
