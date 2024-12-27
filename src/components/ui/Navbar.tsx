@@ -69,7 +69,7 @@ const Navbar = () => {
           <li className="text-xl">
             <NavLink
               to="/contact"
-              className={({ isActive }) => (isActive ? " text-[#ECC500]" : "")}
+              className={({ isActive }) => (isActive ? " text-[#FAFFAF]" : "")}
             >
               Contact Us
             </NavLink>
@@ -79,7 +79,7 @@ const Navbar = () => {
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
-                  isActive ? " text-[#ECC500]" : ""
+                  isActive ? " text-[#FAFFAF]" : ""
                 }
               >
                 Dashboard
