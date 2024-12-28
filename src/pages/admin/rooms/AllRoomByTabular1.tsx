@@ -20,29 +20,40 @@ import CreateRoom from "./CreateRoom";
 
 const AllRoomByTabular = () => {
   const [selectedRoomId, setSelectedRoomId] = useState(null);
+
   const { data, isLoading } = useGetAllRoomsQuery(undefined, {
     pollingInterval: 1000,
   });
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [createDialogOpen, setCreateDialogOpen] = useState(false);
-  const [deleteRoom] = useDeleteRoomMutation();
-  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
-  const [currentPage, setCurrentPage] = useState(1); // State for current page
 
-  const itemsPerPage = 8; // Number of rooms per page
-  const totalItems = data?.data?.length || 0;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const [createDialogOpen, setCreateDialogOpen] = useState(false);
+
+  const [deleteRoom] = useDeleteRoomMutation();
+
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#557856]"></div>
+      </div>
+    );
+  }
+
+  //console.log(data);
 
   const handleUpdate = (roomId: any) => {
     setSelectedRoomId(roomId);
     setIsDialogOpen(true);
   };
-
   const handleAdd = () => {
     setCreateDialogOpen(true);
   };
 
   function handleDelete(id: string, deleted: boolean) {
+    //console.log(deleted);
+
+    //deleted room will not be delete twice
     if (deleted && !alertShown) {
       swal({
         title: "Delete Failed",
@@ -53,7 +64,10 @@ const AllRoomByTabular = () => {
       }).then(() => {
         setAlertShown(false);
       });
+
+      // Set the alert
       setAlertShown(true);
+
       return;
     }
     swal({
@@ -81,24 +95,8 @@ const AllRoomByTabular = () => {
         swal("Cancelled", "The room is safe!", "info");
       }
     });
-  }
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentPageData = data?.data?.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#557856]"></div>
-      </div>
-    );
+    //console.log(id, "del");
   }
 
   return (
@@ -106,7 +104,7 @@ const AllRoomByTabular = () => {
       <div className="flex justify-start">
         <button
           type="submit"
-          onClick={handleAdd}
+          onClick={() => handleAdd()}
           className="btn btn-primary text-lg px-4 mt-4 py-2 bg-[#557856] text-white font-medium rounded-md hover:bg-[#a2c5a3]"
         >
           Add Room
@@ -116,9 +114,11 @@ const AllRoomByTabular = () => {
         <TableHeader>
           <TableRow className=" border-2 border-[#557856]">
             <TableHead className="text-[#557856] font-medium text-base">
+              {" "}
               Name
             </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
+              {" "}
               Image
             </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
@@ -142,50 +142,40 @@ const AllRoomByTabular = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {currentPageData?.map((room: any) => (
-            <TableRow key={room._id}>
-              <TableCell className="py-1 h-1">{room?.name}</TableCell>
-              <TableCell className="py-1 h-1">
-                <img
-                  src={room?.image[0]}
-                  className="w-12 h-12 rounded-2xl"
-                  alt=""
-                />
-              </TableCell>
-              <TableCell className="py-1 h-1">{room?.roomNo}</TableCell>
-              <TableCell className="py-1 h-1">{room?.floorNo}</TableCell>
-              <TableCell className="py-1 h-1">{room?.capacity}</TableCell>
-              <TableCell className="py-1 h-1">{room?.pricePerSlot}</TableCell>
-              <TableCell className="py-1 h-1">
-                {room?.isDeleted ? "Yes" : "No"}
-              </TableCell>
-              <TableCell className="flex gap-3 mt-3 py-1 h-1 items-center">
-                <button onClick={() => handleUpdate(room?._id)}>
-                  <FaPenToSquare className="text-[#557856] text-xl" />
-                </button>
-                <button
-                  onClick={() => handleDelete(room?._id, room?.isDeleted)}
-                >
-                  <RiDeleteBack2Fill className="text-red-600 text-2xl" />
-                </button>
-              </TableCell>
-            </TableRow>
-          ))}
+          {data?.data?.map((room: any) => {
+            return (
+              <TableRow key={room._id}>
+                <TableCell className="py-1 h-1">{room?.name}</TableCell>
+                <TableCell className="py-1 h-1">
+                  <img
+                    src={room?.image[0]}
+                    className="w-12 h-12 rounded-2xl"
+                    alt=""
+                  />
+                </TableCell>
+
+                <TableCell className="py-1 h-1"> {room?.roomNo}</TableCell>
+                <TableCell className="py-1 h-1"> {room?.floorNo}</TableCell>
+                <TableCell className="py-1 h-1">{room?.capacity}</TableCell>
+                <TableCell className="py-1 h-1">{room?.pricePerSlot}</TableCell>
+                <TableCell className="py-1 h-1">
+                  {room?.isDeleted ? "Yes" : "No"}
+                </TableCell>
+                <TableCell className="flex gap-3 mt-3 py-1 h-1 items-center">
+                  <button onClick={() => handleUpdate(room?._id)}>
+                    <FaPenToSquare className="text-[#557856] text-xl" />
+                  </button>
+                  <button
+                    onClick={() => handleDelete(room?._id, room?.isDeleted)}
+                  >
+                    <RiDeleteBack2Fill className="text-red-600 text-2xl" />
+                  </button>
+                </TableCell>
+              </TableRow>
+            );
+          })}
         </TableBody>
       </Table>
-      <div className="flex justify-center mt-4 gap-2">
-        {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
-          <button
-            key={page}
-            onClick={() => handlePageChange(page)}
-            className={`px-3 py-1 rounded ${
-              page === currentPage ? "bg-[#557856] text-white" : "bg-gray-200"
-            }`}
-          >
-            {page}
-          </button>
-        ))}
-      </div>
       {isDialogOpen && (
         <UpdateRoom
           roomId={selectedRoomId}

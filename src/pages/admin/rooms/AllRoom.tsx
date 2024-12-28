@@ -39,7 +39,7 @@ const AllRoom = () => {
       </div>
       {/* MEEING ROOM ALL */}
       {availableRooms?.length > 0 ? (
-        <div className="grid md:grid-cols-4 grid-cols-1 gap-5 px-16  justify-between items-center mt-10 rounded-lg">
+        <div className="grid md:grid-cols-4 grid-cols-1 gap-5 px-8  justify-between items-center mt-10 rounded-lg">
           {/* card- */}
 
           {availableRooms?.length > 0 &&

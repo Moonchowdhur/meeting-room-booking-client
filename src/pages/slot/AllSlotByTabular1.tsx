@@ -7,6 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+// Use the correct API hook
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import { FaPenToSquare } from "react-icons/fa6";
 import { useState } from "react";
@@ -24,18 +25,18 @@ const AllSlotByTabular = () => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [createDialogOpen, setCreateDialogOpen] = useState(false);
   const [deleteSlot] = useDeleteSlotMutation();
-  const [alertShown, setAlertShown] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
 
-  const itemsPerPage = 8; // Number of slots per page
-  const totalItems = data?.data?.length || 0;
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const [alertShown, setAlertShown] = useState(false); // State to control alert visibility
 
-  const startIndex = (currentPage - 1) * itemsPerPage;
-  const currentPageData = data?.data?.slice(
-    startIndex,
-    startIndex + itemsPerPage
-  );
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#557856]"></div>
+      </div>
+    );
+  }
+
+  //console.log(data);
 
   const handleUpdate = (slotId: any) => {
     setSelectedSlotId(slotId);
@@ -46,19 +47,23 @@ const AllSlotByTabular = () => {
     setCreateDialogOpen(true);
   };
 
-  const handleDelete = (id: string, booked: boolean) => {
+  function handleDelete(id: string, booked: boolean) {
+    //console.log(booked);
+
+    //deleted slot will not be delete twice
     if (booked && !alertShown) {
       swal({
         title: "Delete Failed",
         text: "You can't delete this slot as it has already been booked.",
         icon: "error",
-        //@ts-expect-error: no error found
-
+        //@ts-expect-error :'buttons' is generated error
         buttons: "Okay",
       }).then(() => {
         setAlertShown(false);
       });
+
       setAlertShown(true);
+
       return;
     }
 
@@ -66,8 +71,7 @@ const AllSlotByTabular = () => {
       title: "Are you sure to delete?",
       text: "Once deleted, you will not be able to recover this slot!",
       icon: "warning",
-      //@ts-expect-error: no error found
-
+      // @ts-expect-error: Unreachable code error
       buttons: true,
       dangerMode: true,
     }).then((willDelete) => {
@@ -88,18 +92,8 @@ const AllSlotByTabular = () => {
         swal("Cancelled", "The slot is safe!", "info");
       }
     });
-  };
 
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  if (isLoading) {
-    return (
-      <div className="flex justify-center items-center h-screen">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#557856]"></div>
-      </div>
-    );
+    //console.log(id, "del");
   }
 
   return (
@@ -128,7 +122,8 @@ const AllSlotByTabular = () => {
             <TableHead className="text-[#557856] font-medium text-base">
               Date
             </TableHead>
-            <TableHead className="text-[#557856] font-medium text-base">
+
+            <TableHead className="text-[#557856] font-medium text-left text-base">
               Booked
             </TableHead>
             <TableHead className="text-[#557856] font-medium text-base">
@@ -137,7 +132,7 @@ const AllSlotByTabular = () => {
           </TableRow>
         </TableHeader>
         <TableBody>
-          {currentPageData?.map((slot: any) => (
+          {data?.data?.map((slot: any) => (
             <TableRow key={slot._id}>
               <TableCell>{slot?.room?.name}</TableCell>
               <TableCell>{slot?.startTime}</TableCell>
@@ -159,22 +154,6 @@ const AllSlotByTabular = () => {
           ))}
         </TableBody>
       </Table>
-
-      <div className="flex justify-center mt-4">
-        {Array.from({ length: totalPages }, (_, i) => (
-          <button
-            key={i}
-            className={`px-4 py-2 mx-1 border rounded ${
-              currentPage === i + 1
-                ? "bg-[#557856] text-white"
-                : "bg-gray-200 text-black"
-            }`}
-            onClick={() => handlePageChange(i + 1)}
-          >
-            {i + 1}
-          </button>
-        ))}
-      </div>
 
       {isDialogOpen && (
         <UpdateSlot

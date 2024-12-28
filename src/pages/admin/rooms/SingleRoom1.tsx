@@ -45,25 +45,25 @@ const SingleRoom = () => {
     singleRoom.data;
 
   return (
-    <div className="bg-[#49674a] w-full mt-40 md:mt-0 py-8">
+    <div className="bg-[#49674a] mt-40 md:mt-0 py-16">
       <div className="container mx-auto px-6">
-        <div className=" flex  p-1 mx-auto   rounded-lg overflow-hidden">
-          <div className="relative w-1/2">
-            <div className=" flex-col md:flex-row items-start">
+        <div className="max-w-4xl border border-[#c8d1c9] p-1 mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
+          <div className="relative">
+            <div className="md:flex flex-col md:flex-row items-start">
               {/* Main Image */}
               <div className="flex-grow p-2">
                 <div
-                  className="relative  p-4 rounded-md min-h-[400px] flex items-center justify-center bg-[#ddd]"
+                  className="relative w-full p-4 rounded-md min-h-[400px] flex items-center justify-center bg-[#ddd]"
                   style={{
                     backgroundImage: `url('${selectedImage}')`,
-                    // backgroundSize: "cover",
+                    backgroundSize: "cover",
                     backgroundPosition: "center",
                   }}
                 ></div>
               </div>
 
               {/* Thumbnail Images */}
-              <div className="flex  gap-4 mt-4 md:mt-2 md:ml-2">
+              <div className="flex  md:flex-col gap-4 mt-4 md:mt-2 md:ml-2">
                 {singleRoom.data.image.map((image: any, index: number) => (
                   <button
                     key={index}
@@ -83,11 +83,8 @@ const SingleRoom = () => {
               </div>
             </div>
 
-            <div className="absolute inset-0 "></div>
-          </div>
-
-          <div className=" w-1/2 px-4">
-            <div className="">
+            <div className="absolute inset-0 bg-black opacity-25"></div>
+            <div className="absolute bottom-32 md:bottom-0  left-0 right-0 px-6 py-4 bg-gradient-to-t from-black to-transparent text-white">
               <h1 className="text-xl   md:text-3xl font-bold">{name}</h1>
               <div className="flex justify-start gap-5 md:mt-2">
                 <div className="flex items-center text-white">
@@ -102,6 +99,9 @@ const SingleRoom = () => {
                 </div>
               </div>
             </div>
+          </div>
+
+          <div className="p-6">
             <div className="mb-6">
               <p className="text-lg font-semibold">Description:</p>
               <p className="text-gray-700 mb-4">
@@ -122,14 +122,6 @@ const SingleRoom = () => {
                 <p className="text-lg font-semibold">
                   Capacity: <span className="text-gray-700">{capacity}</span>
                 </p>
-                <div className="flex justify-start mt-6">
-                  <Link
-                    to={`/book/${id}`}
-                    className="bg-[#557856] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#455e45] transition"
-                  >
-                    Book Now
-                  </Link>
-                </div>
               </div>
               <div>
                 <p className="text-lg font-semibold">Amenities:</p>
@@ -144,14 +136,14 @@ const SingleRoom = () => {
               </div>
             </div>
 
-            {/* <div className="flex justify-center mt-6">
+            <div className="flex justify-center mt-6">
               <Link
                 to={`/book/${id}`}
                 className="bg-[#557856] text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-[#455e45] transition"
               >
                 Book Now
               </Link>
-            </div> */}
+            </div>
           </div>
         </div>
       </div>

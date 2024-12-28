@@ -42,7 +42,7 @@ const Navbar = () => {
               : "-top-48 right-0"
           } `}
         >
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="/"
               className={({ isActive }) => (isActive ? " text-[#FAFFAF]" : "")}
@@ -50,7 +50,7 @@ const Navbar = () => {
               Home
             </NavLink>
           </li>
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="/rooms"
               className={({ isActive }) => (isActive ? " text-[#FAFFAF]" : "")}
@@ -58,7 +58,7 @@ const Navbar = () => {
               Meeting Rooms
             </NavLink>
           </li>
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="about"
               className={({ isActive }) => (isActive ? " text-[#FAFFAF]" : "")}
@@ -66,7 +66,7 @@ const Navbar = () => {
               About Us
             </NavLink>
           </li>
-          <li className="text-xl">
+          <li className="text-lg">
             <NavLink
               to="/contact"
               className={({ isActive }) => (isActive ? " text-[#FAFFAF]" : "")}
@@ -75,7 +75,7 @@ const Navbar = () => {
             </NavLink>
           </li>
           {user?.role === "admin" && (
-            <li className="text-xl">
+            <li className="text-lg">
               <NavLink
                 to="/dashboard"
                 className={({ isActive }) =>
@@ -87,7 +87,7 @@ const Navbar = () => {
             </li>
           )}
           {user?.role === "user" && (
-            <li className="text-xl">
+            <li className="text-lg">
               <NavLink
                 to="/my-booking"
                 className={({ isActive }) =>
