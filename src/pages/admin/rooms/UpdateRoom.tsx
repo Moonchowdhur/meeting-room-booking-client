@@ -375,10 +375,10 @@ const UpdateRoom = ({ roomId, isDialogOpen, setIsDialogOpen }: any) => {
                       </button>
 
                       {/* {index > 0 && errors?.amenities && (
-                       // @ts-expect-error: Unreachable code error
-         <p className="text-red-500"> {errors?.amenities[index]?.message}
-                  </p>
-                )} */}
+                         // @ts-expect-error: Unreachable code error
+           <p className="text-red-500"> {errors?.amenities[index]?.message}
+                    </p>
+                  )} */}
                     </li>
                   ))}
                 </ul>

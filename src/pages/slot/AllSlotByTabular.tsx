@@ -113,7 +113,7 @@ const AllSlotByTabular = () => {
           Add Slot
         </button>
       </div>
-      <Table className="mt-8">
+      <Table className="mt-6">
         <TableHeader>
           <TableRow className="border-2 border-[#557856]">
             <TableHead className="text-[#557856] font-medium text-base">

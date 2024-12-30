@@ -2,8 +2,10 @@ import App from "@/App";
 import MainLayout from "@/components/layout/MainLayout";
 import ProtectedRoute from "@/components/layout/ProtectedRoute";
 import AboutUs from "@/pages/aboutUs/AboutUs";
+import Overview from "@/pages/admin/Overview";
 import AllRoomByTabular from "@/pages/admin/rooms/AllRoomByTabular";
 import SingleRoom from "@/pages/admin/rooms/SingleRoom";
+
 import AllBookingByTabular from "@/pages/booking/AllBookingByTabular";
 import BookingProcess from "@/pages/booking/BookingProcess";
 
@@ -94,8 +96,14 @@ const router = createBrowserRouter([
       },
       {
         path: "dashboard",
+        // element: <MainLayout />,
         element: <MainLayout />,
         children: [
+          {
+            path: "",
+            element: <Overview />,
+          },
+
           {
             //jkhn clickable hbe ,, // -> /dashboard/create-booking as dashboard er under e eta
             path: "create-booking",

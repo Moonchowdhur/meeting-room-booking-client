@@ -35,7 +35,15 @@ const MainLayout = () => {
         <ul className="p-4">
           {user?.role === "admin" && (
             <>
-             
+              <li className="mb-2">
+                <Link
+                  to="/dashboard"
+                  className="block px-4 py-2 hover:bg-[#628a62] rounded"
+                >
+                  Overview
+                </Link>
+              </li>
+
               <li className="mb-2">
                 <Link
                   to="/dashboard/all-room"
