@@ -9,7 +9,7 @@ import { FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
-//login page
+//login page//
 const Login = () => {
   const navigate = useNavigate();
   const [eye, setEye] = useState(false);
